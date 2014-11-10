@@ -1,0 +1,116 @@
+<html>
+<head>
+	<title>SnackTrack</title>
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+  <script src="app.js"></script>
+</head>
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">SnackTrack</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar" ng-controller="HeaderCtrl">
+      <ul class="nav navbar-nav">
+        <li ng-class="{ active: isActive('/home')}"><a href="#">Home</a></li>
+        <li ng-class="{ active: isActive('/dataInput')}"><a href="#/dataInput">Food input</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<body ng-app="snackTrack">
+	<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <ui-view></ui-view>
+    </div>
+	</div>
+  <script type="text/ng-template" id="/home.html">
+    <div class="page-header">
+      <h1>Food point calculator</h1>
+    </div>
+
+    <div ng-repeat="balance in balances">
+      <span style="font-size:20px; margin-left:10px;">
+        {{balance.netid}}: ${{balance.balance}}
+      </span>
+    </div>
+
+    <form ng-submit="addBalance()"
+     style="margin-top:30px;">
+      <h3>Enter your food point balance</h3>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <input type="text"
+             class="form-control"
+             placeholder="Netid"
+             ng-model="netid"></input>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text"
+             class="form-control"
+             placeholder="Food point balance"
+             ng-model="balance"></input>
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default">Eat</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </script>
+  <script type="text/ng-template" id="/dataInput.html">
+    <div class="page-header">
+      <h1>Food input</h1>
+    </div>
+
+    <form ng-submit="addFood()"
+     style="margin-top:30px;">
+      <h3>Enter food item</h3>
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="form-group">
+            <input type="text"
+             class="form-control"
+             placeholder="Food name"
+             ng-model="foodName"></input>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text"
+             class="form-control"
+             placeholder="Cost"
+             ng-model="foodCost"></input>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="input-group">
+            <input type="text"
+             class="form-control"
+             placeholder="Restaurant"
+             ng-model="restaurant"></input>
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default">Submit</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </script>
+</body>
+</html>
