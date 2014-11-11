@@ -1,67 +1,60 @@
-angular.module('snackTrack', ['ui.router'])
-.config([
-  '$stateProvider',
-  '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('home', {
-        url: '/home',
-        templateUrl: '/home.html',
-        controller: 'MainCtrl'
-      })
-      .state('dataInput', {
-        url: '/dataInput',
-        templateUrl: '/dataInput.html',
-        controller: 'MainCtrl'
-      });
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 
-    $urlRouterProvider.otherwise('home');
-  }])
-.factory('balances', [function() {
-  var o = {
-    balances: []
-  };
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
-  return o;
-}])
-.factory('foodData', [function() {
-  var o = {
-    foodData: []
-  };
+var app = express();
 
-  return o;
-}])
-.controller('MainCtrl', [
-	'$scope',
-  'balances',
-  'foodData',
-	function($scope, balances, foodData) {
-    $scope.balances = balances.balances;
-    $scope.foodData = foodData.foodData;
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-    $scope.addBalance = function() {
-      if(!$scope.balance || $scope.balance === '' ||
-         !$scope.netid || $scope.netid === '')
-        { return; }
-      $scope.balances.push({netid: $scope.netid, balance: $scope.balance});
-      $scope.netid = '';
-      $scope.balance = '';
-    };
+// uncomment after placing your favicon in /public
+//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-    $scope.addFood = function() {
-      $scope.foodData.push({name: $scope.foodName,
-                            cost: $scope.foodCost,
-                            restaurant: $scope.restaurant});
-      $scope.foodName = '';
-      $scope.foodCost = '';
-      $scope.restaurant = '';
-    };
-  }])
-.controller('HeaderCtrl', [
-  '$scope',
-  '$location',
-  function($scope, $location) {
-    $scope.isActive = function (viewLocation) {
-      return viewLocation === $location.path();
-    };
-  }]);
+app.use('/', routes);
+app.use('/users', users);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
+
+
+module.exports = app;
