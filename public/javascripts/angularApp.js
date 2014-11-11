@@ -24,9 +24,9 @@ angular.module('snackTrack', ['ui.router'])
 
   return o;
 }])
-.factory('foodData', [function() {
+.factory('foodItems', [function() {
   var o = {
-    foodData: []
+    foodItems: []
   };
 
   return o;
@@ -34,10 +34,10 @@ angular.module('snackTrack', ['ui.router'])
 .controller('MainCtrl', [
 	'$scope',
   'balances',
-  'foodData',
-	function($scope, balances, foodData) {
+  'foodItems',
+	function($scope, balances, foodItems) {
     $scope.balances = balances.balances;
-    $scope.foodData = foodData.foodData;
+    $scope.foodItems = foodItems.foodItems;
 
     $scope.addBalance = function() {
       if(!$scope.balance || $scope.balance === '' ||
@@ -49,7 +49,7 @@ angular.module('snackTrack', ['ui.router'])
     };
 
     $scope.addFood = function() {
-      $scope.foodData.push({name: $scope.foodName,
+      $scope.foodItems.push({name: $scope.foodName,
                             cost: $scope.foodCost,
                             restaurant: $scope.restaurant});
       $scope.foodName = '';
