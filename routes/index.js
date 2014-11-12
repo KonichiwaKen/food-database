@@ -61,6 +61,15 @@ router.delete('/balances/:balance', function(req, res) {
   });
 });
 
+/* DELETE all balances */
+router.delete('/balances', function(req, res, next) {
+  Balance.remove(function(err) {
+    if (err) { return next(err); }
+
+    res.send('Deleted all balances');
+  });
+});
+
 /* POST new balance */
 router.post('/balances', function(req, res, next) {
   var balance = new Balance(req.body);
@@ -98,6 +107,15 @@ router.delete('/food/:foodItem', function(req, res) {
   });
 });
 
+/* DELETE all food items */
+router.delete('/food', function(req, res, next) {
+  FoodItem.remove(function(err) {
+    if (err) { return next(err); }
+
+    res.send('Deleted all food items');
+  });
+});
+
 /* POST new food item */
 router.post('/food', function(req, res, next) {
   var foodItem = new FoodItem(req.body);
@@ -106,6 +124,15 @@ router.post('/food', function(req, res, next) {
     if(err) { return next(err); }
 
     res.json(foodItem);
+  });
+});
+
+/* GET valid food items */
+router.get('/validFood', function(req, res, next) {
+  FoodItem.find({ cost: { $lt: req.query.amount } }, function(err, foodItems) {
+    if (err) { return next(err); }
+
+    res.json(foodItems);
   });
 });
 

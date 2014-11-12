@@ -38,7 +38,7 @@
       <h1>Food point calculator</h1>
     </div>
 
-    <form ng-submit="addBalance()"
+    <form ng-submit="getValidFoods()"
      style="margin-top:30px;">
       <h3>Enter your food point balance</h3>
 
@@ -66,9 +66,9 @@
       </div>
     </form>
 
-    <div ng-repeat="balance in balances">
+    <div ng-repeat="food in validFoodItems track by $index">
       <span style="font-size:20px; margin-left:10px;">
-        {{balance.netid}}: ${{balance.balance}}
+        {{food.name}}: ${{food.cost}} @ {{food.restaurant}}
       </span>
     </div>
   </script>

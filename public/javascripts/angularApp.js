@@ -9,8 +9,8 @@ angular.module('snackTrack', ['ui.router'])
         templateUrl: '/home.html',
         controller: 'MainCtrl',
         resolve: {
-          postPromise: ['balances', function(balances) {
-            return balances.getAll();
+          postPromise: ['validFoodItems', function(validFoodItems) {
+            return validFoodItems.getAll();
           }]
         }
       })
@@ -65,16 +65,42 @@ angular.module('snackTrack', ['ui.router'])
 
   return o;
 }])
+.factory('validFoodItems', ['$http', function($http) {
+  var o = {
+    validFoodItems: []
+  };
+
+  o.getAll = function() {
+    return o.validFoodItems;
+  }
+
+  o.getValid = function(mealAmount) {
+    return $http({
+      url: '/validFood',
+      method: "GET",
+      params: {amount: mealAmount}}).success(function(data) {
+      angular.copy(data, o.validFoodItems);
+    });
+  };
+
+  return o;
+}])
 .controller('MainCtrl', [
 	'$scope',
   'balances',
   'foodItems',
-	function($scope, balances, foodItems) {
+  'validFoodItems',
+	function($scope, balances, foodItems, validFoodItems) {
     $scope.balances = balances.balances;
     $scope.foodItems = foodItems.foodItems;
+    $scope.validFoodItems = validFoodItems.validFoodItems;
 
-    $scope.addBalance = function() {
+    $scope.getValidFoods = function() {
       if (!$scope.netid || $scope.netid === '') { return; }
+
+      var mealAmount = $scope.balance / 30 / 3;
+
+      validFoodItems.getValid(mealAmount);
 
       balances.create({
         netid: $scope.netid,
