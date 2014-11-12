@@ -17,7 +17,12 @@ angular.module('snackTrack', ['ui.router'])
       .state('dataInput', {
         url: '/dataInput',
         templateUrl: '/dataInput.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        resolve: {
+          postPromise: ['foodItems', function(foodItems) {
+            return foodItems.getAll();
+          }]
+        }
       });
 
     $urlRouterProvider.otherwise('home');
@@ -41,9 +46,21 @@ angular.module('snackTrack', ['ui.router'])
 
   return o;
 }])
-.factory('foodItems', [function() {
+.factory('foodItems', ['$http', function($http) {
   var o = {
     foodItems: []
+  };
+
+  o.getAll = function() {
+    return $http.get('/food').success(function(data) {
+      angular.copy(data, o.foodItems);
+    });
+  };
+
+  o.create = function(foodItem) {
+    return $http.post('/food', foodItem).success(function(data) {
+      o.foodItems.push(data);
+    });
   };
 
   return o;
@@ -57,21 +74,29 @@ angular.module('snackTrack', ['ui.router'])
     $scope.foodItems = foodItems.foodItems;
 
     $scope.addBalance = function() {
-      if(!$scope.balance || $scope.balance === '' ||
-         !$scope.netid || $scope.netid === '')
-        { return; }
+      if (!$scope.netid || $scope.netid === '') { return; }
+
       balances.create({
         netid: $scope.netid,
         balance: $scope.balance
       });
+
       $scope.netid = '';
       $scope.balance = '';
     };
 
     $scope.addFood = function() {
-      $scope.foodItems.push({name: $scope.foodName,
-                            cost: $scope.foodCost,
-                            restaurant: $scope.restaurant});
+      if (!$scope.foodName || $scope.foodName === '' ||
+          !$scope.foodCost || $scope.foodCost === '' ||
+          !$scope.restaurant || $scope.restaurant === '')
+        { return; }
+
+      foodItems.create({
+        name: $scope.foodName,
+        cost: $scope.foodCost,
+        restaurant: $scope.restaurant
+      });
+
       $scope.foodName = '';
       $scope.foodCost = '';
       $scope.restaurant = '';

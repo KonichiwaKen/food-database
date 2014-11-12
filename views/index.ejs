@@ -77,12 +77,6 @@
       <h1>Food input</h1>
     </div>
 
-    <div ng-repeat="food in foodItems">
-      <span style="font-size:20px; margin-left:10px;">
-        {{food.name}}: ${{food.cost}} @ {{food.restaurant}}
-      </span>
-    </div>
-
     <form ng-submit="addFood()"
      style="margin-top:30px;">
       <h3>Enter food item</h3>
@@ -117,6 +111,12 @@
         </div>
       </div>
     </form>
+
+    <div ng-repeat="food in foodItems">
+      <span style="font-size:20px; margin-left:10px;">
+        {{food.name}}: ${{food.cost}} @ {{food.restaurant}}
+      </span>
+    </div>
   </script>
 </body>
 </html>
