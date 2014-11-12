@@ -7,7 +7,12 @@ angular.module('snackTrack', ['ui.router'])
       .state('home', {
         url: '/home',
         templateUrl: '/home.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        resolve: {
+          postPromise: ['balances', function(balances) {
+            return balances.getAll();
+          }]
+        }
       })
       .state('dataInput', {
         url: '/dataInput',
@@ -17,9 +22,21 @@ angular.module('snackTrack', ['ui.router'])
 
     $urlRouterProvider.otherwise('home');
   }])
-.factory('balances', [function() {
+.factory('balances', ['$http', function($http) {
   var o = {
     balances: []
+  };
+
+  o.getAll = function() {
+    return $http.get('/balances').success(function(data) {
+      angular.copy(data, o.balances);
+    });
+  };
+
+  o.create = function(balance) {
+    return $http.post('/balances', balance).success(function(data) {
+      o.balances.push(data);
+    });
   };
 
   return o;
@@ -43,7 +60,10 @@ angular.module('snackTrack', ['ui.router'])
       if(!$scope.balance || $scope.balance === '' ||
          !$scope.netid || $scope.netid === '')
         { return; }
-      $scope.balances.push({netid: $scope.netid, balance: $scope.balance});
+      balances.create({
+        netid: $scope.netid,
+        balance: $scope.balance
+      });
       $scope.netid = '';
       $scope.balance = '';
     };

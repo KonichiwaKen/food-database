@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var FoodItemSchema = new mongoose.Schema({
   name: String,
-  balance: Number,
+  cost: Number,
   restaurant: String
 });
 

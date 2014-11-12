@@ -38,12 +38,6 @@
       <h1>Food point calculator</h1>
     </div>
 
-    <div ng-repeat="balance in balances">
-      <span style="font-size:20px; margin-left:10px;">
-        {{balance.netid}}: ${{balance.balance}}
-      </span>
-    </div>
-
     <form ng-submit="addBalance()"
      style="margin-top:30px;">
       <h3>Enter your food point balance</h3>
@@ -71,6 +65,12 @@
         </div>
       </div>
     </form>
+
+    <div ng-repeat="balance in balances">
+      <span style="font-size:20px; margin-left:10px;">
+        {{balance.netid}}: ${{balance.balance}}
+      </span>
+    </div>
   </script>
   <script type="text/ng-template" id="/dataInput.html">
     <div class="page-header">
