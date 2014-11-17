@@ -129,7 +129,7 @@ router.post('/food', function(req, res, next) {
 
 /* GET valid food items */
 router.get('/validFood', function(req, res, next) {
-  FoodItem.find({ cost: { $lt: req.query.amount } }, function(err, foodItems) {
+  FoodItem.find({ cost: { $lte: req.query.amount } }, function(err, foodItems) {
     if (err) { return next(err); }
 
     res.json(foodItems);
