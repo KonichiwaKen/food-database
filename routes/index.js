@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Balance = mongoose.model('Balance');
 var FoodItem = mongoose.model('FoodItem');
+var Transaction = mongoose.model('Transaction');
 
 /* Preloading balances */
 router.param('balance', function(req, res, next, id) {
@@ -10,7 +11,7 @@ router.param('balance', function(req, res, next, id) {
 
   query.exec(function (err, balance) {
     if (err) { return next(err); }
-    if (!balance) { return next(new Error("can't find balance")); }
+    if (!balance) { return next(new Error("can't find balance\n")); }
 
     req.balance = balance;
     return next();
@@ -23,7 +24,7 @@ router.param('foodItem', function(req, res, next, id) {
 
   query.exec(function (err, foodItem) {
     if (err) { return next(err); }
-    if (!foodItem) { return next(new Error("can't find food item")); }
+    if (!foodItem) { return next(new Error("can't find food item\n")); }
 
     req.foodItem = foodItem;
     return next();
@@ -57,7 +58,7 @@ router.delete('/balances/:balance', function(req, res) {
   query.exec(function(err) {
     if (err) { return next(err); }
 
-    res.send('Deleted ' + deletedId);
+    res.send('Deleted ' + deletedId + '\n');
   });
 });
 
@@ -66,7 +67,7 @@ router.delete('/balances', function(req, res, next) {
   Balance.remove(function(err) {
     if (err) { return next(err); }
 
-    res.send('Deleted all balances');
+    res.send('Deleted all balances\n');
   });
 });
 
@@ -103,7 +104,7 @@ router.delete('/food/:foodItem', function(req, res) {
   query.exec(function(err) {
     if (err) { return next(err); }
 
-    res.send('Deleted ' + deletedId);
+    res.send('Deleted ' + deletedId + '\n');
   });
 });
 
@@ -112,7 +113,7 @@ router.delete('/food', function(req, res, next) {
   FoodItem.remove(function(err) {
     if (err) { return next(err); }
 
-    res.send('Deleted all food items');
+    res.send('Deleted all food items\n');
   });
 });
 
@@ -135,5 +136,34 @@ router.get('/validFood', function(req, res, next) {
     res.json(foodItems);
   });
 });
+
+/* GET all food transactions */
+router.get('/transactions', function(req, res, next) {
+  Transaction.find(function(err, transactions) {
+    if (err) { return next(err); }
+
+    res.json(transactions);
+  });
+});
+
+/* POST new food transaction */
+router.post('/transactions', function(req, res, next) {
+  var transaction = new Transaction(req.body);
+
+  transaction.save(function(err, transaction) {
+    if (err) { return next(err); }
+
+    res.json(transaction);
+  });
+});
+
+/* DELETE all food transactions */
+router.delete('/transactions', function(req, res, next) {
+  Transaction.remove(function(err) {
+    if (err) { return next(err); }
+
+    res.send('Deleted all transactions');
+  })
+})
 
 module.exports = router;

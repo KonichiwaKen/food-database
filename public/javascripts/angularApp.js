@@ -23,6 +23,16 @@ angular.module('snackTrack', ['ui.router'])
             return foodItems.getAll();
           }]
         }
+      })
+      .state('trends', {
+        url: '/trends',
+        templateUrl: '/trends.html',
+        controller: 'TrendsCtrl',
+        resolve: {
+          postPromise: ['transactions', function(transactions) {
+            return transactions.getAll();
+          }]
+        }
       });
 
     $urlRouterProvider.otherwise('home');
@@ -72,7 +82,7 @@ angular.module('snackTrack', ['ui.router'])
 
   o.getAll = function() {
     return o.validFoodItems;
-  }
+  };
 
   o.getValid = function(mealAmount) {
     return $http({
@@ -80,6 +90,25 @@ angular.module('snackTrack', ['ui.router'])
       method: "GET",
       params: {amount: mealAmount}}).success(function(data) {
       angular.copy(data, o.validFoodItems);
+    });
+  };
+
+  return o;
+}])
+.factory('transactions', ['$http', function($http) {
+  var o = {
+    transactions: []
+  };
+
+  o.getAll = function() {
+    return $http.get('/transactions').success(function(data) {
+      angular.copy(data, o.transactions);
+    });
+  };
+
+  o.create = function() {
+    return $http.post('/transactions', transaction).success(function(data) {
+      o.transactions.push(data);
     });
   };
 
@@ -128,11 +157,17 @@ angular.module('snackTrack', ['ui.router'])
       $scope.restaurant = '';
     };
   }])
+.controller('TrendsCtrl', [
+  '$scope',
+  'transactions',
+  function($scope, transactions) {
+    $scope.transactions = transactions.transactions;
+  }])
 .controller('HeaderCtrl', [
   '$scope',
   '$location',
   function($scope, $location) {
-    $scope.isActive = function (viewLocation) {
+    $scope.isActive = function(viewLocation) {
       return viewLocation === $location.path();
     };
   }]);
