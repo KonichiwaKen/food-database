@@ -1,33 +1,42 @@
 angular.module('snackTrack', ['ui.router'])
 .config([
-	'$stateProvider',
-	'$urlRouterProvider',
-	function($stateProvider, $urlRouterProvider) {
-		$stateProvider
-		.state('home', {
-			url: '/home',
-			templateUrl: '/home.html',
-			controller: 'MainCtrl',
-			resolve: {
-				postPromise: ['validFoodItems', function(validFoodItems) {
-					return validFoodItems.getAll();
-				}]
-			}
-		})
-		.state('dataInput', {
-			url: '/dataInput',
-			templateUrl: '/dataInput.html',
-			controller: 'MainCtrl',
-			resolve: {
-				postPromise: ['foodItems', function(foodItems) {
-					return foodItems.getAll();
-				}]
-			}
-		});
+  '$stateProvider',
+  '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('home', {
+        url: '/home',
+        templateUrl: '/home.html',
+        controller: 'MainCtrl',
+        resolve: {
+          postPromise: ['validFoodItems', function(validFoodItems) {
+            return validFoodItems.getAll();
+          }]
+        }
+      })
+      .state('dataInput', {
+        url: '/dataInput',
+        templateUrl: '/dataInput.html',
+        controller: 'MainCtrl',
+        resolve: {
+          postPromise: ['foodItems', function(foodItems) {
+            return foodItems.getAll();
+          }]
+        }
+      })
+      .state('trends', {
+        url: '/trends',
+        templateUrl: '/trends.html',
+        controller: 'TrendsCtrl',
+        resolve: {
+          postPromise: ['transactions', function(transactions) {
+            return transactions.getAll();
+          }]
+        }
+      });
 
-		$urlRouterProvider.otherwise('home');
-	}])
-
+    $urlRouterProvider.otherwise('home');
+  }])
 
 .factory('balances', ['$http', function($http) {
 	var o = {
@@ -70,25 +79,44 @@ angular.module('snackTrack', ['ui.router'])
 
 
 .factory('validFoodItems', ['$http', function($http) {
-	var o = {
-		validFoodItems: []
-	};
+  var o = {
+    validFoodItems: []
+  };
 
-	o.getAll = function() {
-		return o.validFoodItems;
-	}
+  o.getAll = function() {
+    return o.validFoodItems;
+  };
 
-	o.getValid = function(mealAmount) {
-		return $http({
-			url: '/validFood',
-			method: "GET",
-			params: {amount: mealAmount}}).success(function(data) {
-				angular.copy(data, o.validFoodItems);
-			});
-		};
-		return o;
-	}])
+  o.getValid = function(mealAmount) {
+    return $http({
+      url: '/validFood',
+      method: "GET",
+      params: {amount: mealAmount}}).success(function(data) {
+      angular.copy(data, o.validFoodItems);
+    });
+  };
+  return o;
+}])
 
+.factory('transactions', ['$http', function($http) {
+  var o = {
+    transactions: []
+  };
+
+  o.getAll = function() {
+    return $http.get('/transactions').success(function(data) {
+      angular.copy(data, o.transactions);
+    });
+  };
+
+  o.create = function() {
+    return $http.post('/transactions', transaction).success(function(data) {
+      o.transactions.push(data);
+    });
+  };
+
+  return o;
+}])
 
 .controller('MainCtrl', [
 	'$scope',
@@ -96,56 +124,63 @@ angular.module('snackTrack', ['ui.router'])
 	'foodItems',
 	'validFoodItems',
 	function($scope, balances, foodItems, validFoodItems) {
-		$scope.balances = balances.balances;
-		$scope.foodItems = foodItems.foodItems;
-		$scope.validFoodItems = validFoodItems.validFoodItems;
+    $scope.balances = balances.balances;
+    $scope.foodItems = foodItems.foodItems;
+    $scope.validFoodItems = validFoodItems.validFoodItems;
 
-		$scope.getValidFoods = function() {
-			if (!$scope.netid || $scope.netid === '') { return; }
+    $scope.getValidFoods = function() {
+      if (!$scope.netid || $scope.netid === '') { return; }
 
-			var currentDate = new Date();
-			var endDate = new Date("12/15/2014");
 
-			var timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
-			var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+      var currentDate = new Date();
+      var endDate = new Date("12/15/2014");
 
-			// console.log(diffDays);
-			//include *3 for 3 meals a day
-			var mealAmount = $scope.balance / (diffDays*3);
+      var timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
+      var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 
-			validFoodItems.getValid(mealAmount);
+      // console.log(diffDays);
+      //include *3 for 3 meals a day
+      var mealAmount = $scope.balance / (diffDays*3);
 
-			balances.create({
-				netid: $scope.netid,
-				balance: $scope.balance
-			});
+      validFoodItems.getValid(mealAmount);
+ 
+      balances.create({
+        netid: $scope.netid,
+        balance: $scope.balance
+      });
 
-			$scope.netid = '';
-			$scope.balance = '';
-		};
+      $scope.netid = '';
+      $scope.balance = '';
+    };
 
-		$scope.addFood = function() {
-			if (!$scope.foodName || $scope.foodName === '' ||
-				!$scope.foodCost || $scope.foodCost === '' ||
-				!$scope.restaurant || $scope.restaurant === '')
-				{ return; }
+    $scope.addFood = function() {
+      if (!$scope.foodName || $scope.foodName === '' ||
+          !$scope.foodCost || $scope.foodCost === '' ||
+          !$scope.restaurant || $scope.restaurant === '')
+        { return; }
 
-			foodItems.create({
-				name: $scope.foodName,
-				cost: $scope.foodCost,
-				restaurant: $scope.restaurant
-			});
+      foodItems.create({
+        name: $scope.foodName,
+        cost: $scope.foodCost,
+        restaurant: $scope.restaurant
+      });
 
-			$scope.foodName = '';
-			$scope.foodCost = '';
-			$scope.restaurant = '';
-		};
-	}])
+      $scope.foodName = '';
+      $scope.foodCost = '';
+      $scope.restaurant = '';
+    };
+  }])
+.controller('TrendsCtrl', [
+  '$scope',
+  'transactions',
+  function($scope, transactions) {
+    $scope.transactions = transactions.transactions;
+  }])
 .controller('HeaderCtrl', [
-	'$scope',
-	'$location',
-	function($scope, $location) {
-		$scope.isActive = function (viewLocation) {
-			return viewLocation === $location.path();
-		};
-	}]);
+  '$scope',
+  '$location',
+  function($scope, $location) {
+    $scope.isActive = function(viewLocation) {
+      return viewLocation === $location.path();
+    };
+  }]);

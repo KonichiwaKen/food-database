@@ -23,6 +23,7 @@
       <ul class="nav navbar-nav">
         <li ng-class="{ active: isActive('/home')}"><a href="#">Home</a></li>
         <li ng-class="{ active: isActive('/dataInput')}"><a href="#/dataInput">Food input</a></li>
+        <li ng-class="{ active: isActive('/trends')}"><a href="#/trends">Trends</a></li>
       </ul>
     </div>
   </div>
@@ -118,6 +119,17 @@
     <div ng-repeat="food in foodItems">
       <span style="font-size:20px; margin-left:10px;">
         {{food.name}}: ${{food.cost}} @ {{food.restaurant}}
+      </span>
+    </div>
+  </script>
+  <script type="text/ng-template" id="/trends.html">
+    <div class="page-header">
+      <h1>Trends</h1>
+    </div>
+
+    <div ng-repeat="transaction in transactions">
+      <span style="font-size:20px; margin-left:10px;">
+        {{transaction.foodId}}: {{transaction.date}} @ {{transaction.time}}
       </span>
     </div>
   </script>

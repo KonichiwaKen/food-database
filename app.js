@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/snacktrack');
 require('./models/Balances');
 require('./models/FoodItems');
+require('./models/Transactions');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
