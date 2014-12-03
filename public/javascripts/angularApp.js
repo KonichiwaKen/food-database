@@ -140,7 +140,7 @@ angular.module('snackTrack', ['ui.router'])
 
       // console.log(diffDays);
       //include *3 for 3 meals a day
-      var mealAmount = $scope.balance / (diffDays*3);
+      var mealAmount = $scope.balance / (diffDays*2.5);
 
       validFoodItems.getValid(mealAmount);
  
