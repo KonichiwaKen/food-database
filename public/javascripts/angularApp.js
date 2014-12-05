@@ -121,7 +121,7 @@ module.factory('transactions', [
       });
     };
 
-    o.create = function() {
+    o.create = function(transaction) {
       return $http.post('/transactions', transaction).success(function(data) {
         o.transactions.push(data);
       });
@@ -136,10 +136,12 @@ module.controller('MainCtrl', [
 	'balances',
 	'foodItems',
 	'validFoodItems',
-	function($scope, balances, foodItems, validFoodItems) {
+  'transactions',
+	function($scope, balances, foodItems, validFoodItems, transactions) {
     $scope.balances = balances.balances;
     $scope.foodItems = foodItems.foodItems;
     $scope.validFoodItems = validFoodItems.validFoodItems;
+    $scope.transactions = transactions.transactions;
 
     $scope.getValidFoods = function() {
       if (!$scope.netid || $scope.netid === '') { return; }
@@ -182,14 +184,38 @@ module.controller('MainCtrl', [
       $scope.foodCost = '';
       $scope.restaurant = '';
     };
+
+    $scope.addTransaction = function(chosenId) {
+      var currentDate = new Date();
+
+      transactions.create({
+        foodId: chosenId,
+        date: currentDate
+      });
+    };
   }
 ]);
 
 module.controller('TrendsCtrl', [
   '$scope',
+  '$http',
   'transactions',
-  function($scope, transactions) {
+  function($scope, $http, transactions) {
     $scope.transactions = transactions.transactions;
+    $scope.trends = [];
+
+    $scope.allTransactions = function() {
+      $scope.trends = [];
+      for(var i = 0; i < $scope.transactions.length; i++) {
+        var date = $scope.transactions[i].date;
+
+        $http.get('/food/' + $scope.transactions[i].foodId).success(function(data) {
+          var newTrend = data;
+          newTrend.newDate = date;
+          $scope.trends.push(newTrend);
+        });
+      }
+    }
   }
 ]);
 
