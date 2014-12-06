@@ -206,14 +206,16 @@ module.controller('TrendsCtrl', [
     $scope.allTransactions = function() {
       $scope.trends = [];
       for(var i = 0; i < $scope.transactions.length; i++) {
-        var date = $scope.transactions[i].date;
-
-        $http.get('/food/' + $scope.transactions[i].foodId).success(function(data) {
-          var newTrend = data;
-          newTrend.newDate = date;
-          $scope.trends.push(newTrend);
-        });
+        createTrend($scope.transactions[i].foodId, $scope.transactions[i].date);
       }
+    }
+
+    createTrend = function(foodId, date) {
+      $http.get('/food/' + foodId).success(function(data) {
+        var trend = data;
+        trend.date = date;
+        $scope.trends.push(trend);
+      });
     }
   }
 ]);
