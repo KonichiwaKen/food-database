@@ -187,7 +187,6 @@ module.controller('MainCtrl', [
 
     $scope.addTransaction = function(chosenId) {
       var currentDate = new Date();
-
       transactions.create({
         foodId: chosenId,
         date: currentDate
