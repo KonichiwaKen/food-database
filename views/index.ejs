@@ -8,6 +8,9 @@
   margin: 1px;
   color: white;
 }
+.red, .red a {
+  color: #FF0000;
+}
 </style>
 
 <head>
@@ -113,6 +116,7 @@
               <th>Food</th>
               <th>Price</th>
               <th>Location</th>
+              <th>You sure?</th>
             </tr>  
           </thead>
           <tbody>
@@ -121,7 +125,7 @@
               <td class="col-md-4">${{food.cost}}</td>
               <td class="col-md-4">{{food.restaurant}}</td>
               <td class="col-md-1 text-center">
-                <button type="button" class="btn btn-default btn-xs" ng-click="remFromMenu(food._id)">
+                <button type="button" class="btn btn-default btn-xs" ng-click="remFromMenu(food._id, food.cost)">
                   <span class="glyphicon glyphicon-remove red"></span>
                 </button>
               </td>

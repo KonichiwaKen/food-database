@@ -193,29 +193,28 @@ module.controller('MainCtrl', [
       var food_selected = {foodID: foodID, name: name, restaurant: restaurant, cost: cost};
       $scope.total += cost;
       $scope.food_selection.push(food_selected);
+      console.log($scope.food_selection);
     }
 
     $scope.remFromMenu = function(foodID, cost){
 
       $scope.total -= cost;
-      $scope.food_selection.push(food_selected);
+      $scope.food_selection.splice(foodID, 1);
+      console.log($scope.food_selection);
     }
 
 
     $scope.addTransaction = function() {
       var currentDate = new Date();
-
-      console.log('test');
-
+      // console.log('test');
       for(var i = 0; i < $scope.food_selection.length; i++) {
         transactions.create({
           foodId: $scope.food_selection[i]._id,
           date: currentDate
         });
       }
-
       $scope.food_selection = [];
-
+      $scope.total = 0;
     }
   }
   ]);
