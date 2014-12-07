@@ -229,15 +229,49 @@ module.controller('TrendsCtrl', [
 
     $scope.allTransactions = function() {
       $scope.trends = [];
+
       for(var i = 0; i < $scope.transactions.length; i++) {
         createTrend($scope.transactions[i].foodId, $scope.transactions[i].date);
       }
     }
 
+    $scope.foodTrends = function() {
+      $scope.trends = [];
+
+      for (var i = 0; i < $scope.transactions.length; i++) {
+        var found = 0;
+        var trendId = $scope.transactions[i].foodId;
+
+        for (var j = 0; j < $scope.trends.length; j++) {
+          if ($scope.trends[j].foodId === trendId) {
+            $scope.trends[j].count++;
+            $scope.trends[j].average = $scope.trends[j].count / $scope.transactions.length * 1000; // width is 614
+            found = 1;
+            break;
+          }
+        }
+
+        if (!Boolean(found)) {
+          $scope.trends.push({foodId: trendId, count: 1, average: 1 / $scope.transactions.length * 1000});
+        }
+      }
+
+      for (var i = 0; i < $scope.trends.length; i++) {
+        getFoodInfo($scope.trends[i]);
+      }
+    }
+
+    getFoodInfo = function(trend) {
+      $http.get('/food/' + trend.foodId).success(function(data) {
+        console.log(data.name);
+        trend.name = data.name;
+      });
+    }
+
     createTrend = function(foodId, date) {
       $http.get('/food/' + foodId).success(function(data) {
         var trend = data;
-        trend.date = date;
+        trend.date = new Date(date);
         $scope.trends.push(trend);
       });
     }
