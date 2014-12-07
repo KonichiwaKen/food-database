@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 // setup mongoDB
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/snacktrack');
-// mongoose.connect('mongodb://ken:%JuoHO3m1HTz@dogen.mongohq.com:10014/app32294952');
 require('./models/Balances');
 require('./models/FoodItems');
 require('./models/Transactions');
@@ -22,7 +21,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
