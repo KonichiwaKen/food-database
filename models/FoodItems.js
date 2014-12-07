@@ -1,15 +1,15 @@
 var mongoose = require('mongoose');
 
 var FoodItemSchema = new mongoose.Schema({
+  category: String,
   name: String,
+  calories: Number,
   cost: Number,
   restaurant: String,
-
   hasFish: {type: Boolean, default: false},
   hasNuts: {type: Boolean, default: false},
   hasLactose: {type: Boolean, default: false},
   hasMeat: {type: Boolean, default: false},
-  
   typeOfMeal: String
 });
 
