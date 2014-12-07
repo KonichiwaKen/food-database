@@ -61,109 +61,160 @@
       </div>
     </form>
 
-    <table class="table table-striped table-bordered table-hover table-condensed">
-      <thead>
-        <tr ng-if="validFoodItems.length != 0">
-          <th>Food</th>
-          <th>Price</th>
-          <th>Location</th>
-          <th>Eat !</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="food in validFoodItems track by $index|filter:{cost:foodCost}">
-          <td class="col-md-4">
-            <a href="http://www.google.com/#q={{food.name}}" Title="Search {{food.name}}" target="_blank">
-              {{food.name}}
-            </a>
-          </td>
-          <td class="col-md-4">${{food.cost}}</td>
-          <td class="col-md-4">{{food.restaurant}}</td>
-          <td class="col-md-1 text-center">
-            <button type="button" class="btn btn-default btn-xs" ng-click="addTransaction(food._id)">
-              <span class="glyphicon glyphicon-cutlery"></span>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </script>
 
-  <script type="text/ng-template" id="/dataInput.html">
-    <div class="page-header">
-      <h1>Food input</h1>
+
+
+
+
+
+    <div class="col-md-6">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+          <thead>
+            <h2 class="sub-header" ng-if="validFoodItems.length != 0">Food Options</h2>
+            <tr ng-if="validFoodItems.length != 0">
+              <th>Food</th>
+              <th>Price</th>
+              <th>Location</th>
+              <th>Eat !</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="food in validFoodItems track by $index|filter:{cost:foodCost}">
+              <td class="col-md-4">
+                <a href="http://www.google.com/#q={{food.name}}" Title="Search {{food.name}}" target="_blank">
+                  {{food.name}}
+                </a>
+              </td>
+              <td class="col-md-4">${{food.cost}}</td>
+              <td class="col-md-4">{{food.restaurant}}</td>
+              <td class="col-md-1 text-center">
+                <button type="button" class="btn btn-default btn-xs" ng-click="addToMenu(food._id, food.name, food.cost, food.restaurant)">
+                  <span class="glyphicon glyphicon-cutlery"></span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-
-    <form ng-submit="addFood()" style="margin-top:30px;">
-      <h3>Enter food item</h3>
-      <div class="row">
-        <div class="col-lg-5">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Food name" ng-model="foodName"></input>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="input-group">
-            <span class="input-group-addon">$</span>
-            <input type="text" class="form-control" placeholder="Cost" ng-model="foodCost"></input>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Restaurant" ng-model="restaurant"></input>
-            <span class="input-group-btn">
-              <button type="submit" class="btn btn-default">Submit</button>
-            </span>
-          </div>
+    <div class="col-md-6">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+          <thead>
+            <h2 class="sub-header" ng-if="food_selection.length !=0">Selected Foods</h2>
+            <tr ng-if="food_selection.length !=0 ">
+              <th>Food</th>
+              <th>Price</th>
+              <th>Location</th>
+            </tr>  
+          </thead>
+          <tbody>
+            <tr ng-repeat="food in food_selection">
+              <td class="col-md-4">{{food.name}}</td>
+              <td class="col-md-4">${{food.cost}}</td>
+              <td class="col-md-4">{{food.restaurant}}</td>
+              <td class="col-md-1 text-center">
+                <button type="button" class="btn btn-default btn-xs" ng-click="remFromMenu(food._id)">
+                  <span class="glyphicon glyphicon-remove red"></span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row-sm">
+          <div class="col-sm-4" ng-if="food_selection.length !=0">Total:</div>
+          <div class="col-sm-4" ng-if="food_selection.length !=0">${{total}}</div>
+          <div class="col-sm-4"><button type="button" class="btn btn-default btn-sm" ng-if="food_selection.length !=0" ng-click="addTransaction()">
+            <span class="glyphicon glyphicon-thumbs-up"></span> Submit
+          </button></div>
         </div>
       </div>
-    </form>
-
-
-
-    <table class="table table-striped table-bordered table-hover table-condensed">
-      <thead>
-        <tr>
-          <th>Food</th>
-          <th>Price</th>
-          <th>Location</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="food in foodItems track by $index|filter:{cost:foodCost}">
-          <td class="col-md-4">{{food.name}}</td>
-          <td class="col-md-4">${{food.cost}}</td>
-          <td class="col-md-4">{{food.restaurant}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </script>
-
-  <script type="text/ng-template" id="/trends.html">
-    <div class="page-header">
-      <h1>Trends</h1>
     </div>
-    <button type="button" class="btn btn-default" ng-click="allTransactions()">All transactions</button>
-    <br></br>
-    <table class="table table-striped table-bordered table-hover table-condensed">
-      <thead>
-        <tr ng-if="trends.length != 0">
-          <th>Food</th>
-          <th>Price</th>
-          <th>Location</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="trend in trends track by $index|filter: {cost:foodCost}">
-          <td class="col-md-3">{{trend.name}}</td>
-          <td class="col-md-3">${{trend.cost}}</td>
-          <td class="col-md-3">{{trend.restaurant}}</td>
-          <td class="col-md-10 text-center">{{trend.date}}</td>
-        </tr>
-      </tbody>
-    </table>
+  </div>      
+</script>
 
-  </script>
+
+
+
+
+
+
+
+<script type="text/ng-template" id="/dataInput.html">
+  <div class="page-header">
+    <h1>Food input</h1>
+  </div>
+
+  <form ng-submit="addFood()" style="margin-top:30px;">
+    <h3>Enter food item</h3>
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Food name" ng-model="foodName"></input>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="input-group">
+          <span class="input-group-addon">$</span>
+          <input type="text" class="form-control" placeholder="Cost" ng-model="foodCost"></input>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Restaurant" ng-model="restaurant"></input>
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <table class="table table-striped table-bordered table-hover table-condensed">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Price</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="food in foodItems track by $index|filter:{cost:foodCost}">
+        <td class="col-md-4">{{food.name}}</td>
+        <td class="col-md-4">${{food.cost}}</td>
+        <td class="col-md-4">{{food.restaurant}}</td>
+      </tr>
+    </tbody>
+  </table>
+</script>
+
+
+<script type="text/ng-template" id="/trends.html">
+  <div class="page-header">
+    <h1>Trends</h1>
+  </div>
+  <button type="button" class="btn btn-default" ng-click="allTransactions()">All transactions</button>
+  <br></br>
+  <table class="table table-striped table-bordered table-hover table-condensed">
+    <thead>
+      <tr ng-if="trends.length != 0">
+        <th>Food</th>
+        <th>Price</th>
+        <th>Location</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="trend in trends track by $index|filter: {cost:foodCost}">
+        <td class="col-md-3">{{trend.name}}</td>
+        <td class="col-md-3">${{trend.cost}}</td>
+        <td class="col-md-3">{{trend.restaurant}}</td>
+        <td class="col-md-10 text-center">{{trend.date}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</script>
 </body>
 </html>

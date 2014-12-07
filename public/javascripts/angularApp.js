@@ -37,7 +37,7 @@ module.config([
 
     $urlRouterProvider.otherwise('home');
   }
-]);
+  ]);
 
 module.factory('balances', [
   '$http',
@@ -60,7 +60,7 @@ module.factory('balances', [
 
   	return o;
   }
-]);
+  ]);
 
 module.factory('foodItems', [
   '$http',
@@ -82,7 +82,7 @@ module.factory('foodItems', [
   	};
   	return o;
   }
-]);
+  ]);
 
 
 module.factory('validFoodItems', [
@@ -101,12 +101,12 @@ module.factory('validFoodItems', [
         url: '/validFood',
         method: "GET",
         params: {amount: mealAmount}}).success(function(data) {
-        angular.copy(data, o.validFoodItems);
-      });
-    };
-    return o;
-  }
-]);
+          angular.copy(data, o.validFoodItems);
+        });
+      };
+      return o;
+    }
+    ]);
 
 module.factory('transactions', [
   '$http',
@@ -129,7 +129,7 @@ module.factory('transactions', [
 
     return o;
   }
-]);
+  ]);
 
 module.controller('MainCtrl', [
 	'$scope',
@@ -137,11 +137,19 @@ module.controller('MainCtrl', [
 	'foodItems',
 	'validFoodItems',
   'transactions',
-	function($scope, balances, foodItems, validFoodItems, transactions) {
+  function($scope, balances, foodItems, validFoodItems, transactions) {
     $scope.balances = balances.balances;
     $scope.foodItems = foodItems.foodItems;
     $scope.validFoodItems = validFoodItems.validFoodItems;
     $scope.transactions = transactions.transactions;
+
+
+
+
+    $scope.food_selection = [];
+    $scope.total = 0;
+
+
 
     $scope.getValidFoods = function() {
       if (!$scope.netid || $scope.netid === '') { return; }
@@ -153,12 +161,8 @@ module.controller('MainCtrl', [
       var timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
       var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-      // console.log(diffDays);
-      //include *3 for 3 meals a day
       var mealAmount = $scope.balance / (diffDays*2.5);
-
       validFoodItems.getValid(mealAmount);
-
       balances.create({
         netid: $scope.netid,
         balance: $scope.balance
@@ -170,8 +174,8 @@ module.controller('MainCtrl', [
 
     $scope.addFood = function() {
       if (!$scope.foodName || $scope.foodName === '' ||
-          !$scope.foodCost || $scope.foodCost === '' ||
-          !$scope.restaurant || $scope.restaurant === '')
+        !$scope.foodCost || $scope.foodCost === '' ||
+        !$scope.restaurant || $scope.restaurant === '')
         { return; }
 
       foodItems.create({
@@ -185,15 +189,36 @@ module.controller('MainCtrl', [
       $scope.restaurant = '';
     };
 
-    $scope.addTransaction = function(chosenId) {
+    $scope.addToMenu = function(foodID, name, cost, restaurant){
+      var food_selected = {foodID: foodID, name: name, restaurant: restaurant, cost: cost};
+      $scope.total += cost;
+      $scope.food_selection.push(food_selected);
+    }
+
+    $scope.remFromMenu = function(foodID, cost){
+
+      $scope.total -= cost;
+      $scope.food_selection.push(food_selected);
+    }
+
+
+    $scope.addTransaction = function() {
       var currentDate = new Date();
-      transactions.create({
-        foodId: chosenId,
-        date: currentDate
-      });
-    };
+
+      console.log('test');
+
+      for(var i = 0; i < $scope.food_selection.length; i++) {
+        transactions.create({
+          foodId: $scope.food_selection[i]._id,
+          date: currentDate
+        });
+      }
+
+      $scope.food_selection = [];
+
+    }
   }
-]);
+  ]);
 
 module.controller('TrendsCtrl', [
   '$scope',
@@ -201,7 +226,6 @@ module.controller('TrendsCtrl', [
   'transactions',
   function($scope, $http, transactions) {
     $scope.transactions = transactions.transactions;
-    $scope.trends = [];
 
     $scope.allTransactions = function() {
       $scope.trends = [];
@@ -218,7 +242,7 @@ module.controller('TrendsCtrl', [
       });
     }
   }
-]);
+  ]);
 
 module.controller('HeaderCtrl', [
   '$scope',
