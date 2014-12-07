@@ -38,7 +38,7 @@ module.config([
 
     $urlRouterProvider.otherwise('home');
   }
-  ]);
+]);
 
 module.factory('balances', [
   '$http',
@@ -61,7 +61,7 @@ module.factory('balances', [
 
   	return o;
   }
-  ]);
+]);
 
 module.factory('foodItems', [
   '$http',
@@ -89,8 +89,7 @@ module.factory('foodItems', [
   	};
   	return o;
   }
-  ]);
-
+]);
 
 module.factory('validFoodItems', [
   '$http',
@@ -107,13 +106,14 @@ module.factory('validFoodItems', [
       return $http({
         url: '/validFood',
         method: "GET",
-        params: {amount: mealAmount, hasFish: fishAll, hasNuts: nutAll, hasLactose:lactoseAll, hasMeat:meatAll}}).success(function(data) {
-          angular.copy(data, o.validFoodItems);
-        });
-      };
-      return o;
-    }
-    ]);
+        params: {amount: mealAmount, hasFish: fishAll, hasNuts: nutAll, hasLactose:lactoseAll, hasMeat:meatAll}
+      }).success(function(data) {
+        angular.copy(data, o.validFoodItems);
+      });
+    };
+    return o;
+  }
+]);
 
 module.factory('transactions', [
   '$http',
@@ -136,7 +136,7 @@ module.factory('transactions', [
 
     return o;
   }
-  ]);
+]);
 
 module.factory('restaurants', [
   function() {
@@ -188,7 +188,6 @@ module.controller('MainCtrl', [
       var timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
       var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
       mealAmount = $scope.balance / (diffDays*2.5);
-      console.log(mealAmount);
 
       if ($scope.fishAll) {
         $scope.fishAll = 1;
@@ -225,14 +224,8 @@ module.controller('MainCtrl', [
         meatAll: $scope.meatAll
       });
 
-      // console.log(balances);
-
       $scope.netid = '';
       $scope.balance = '';
-      // $scope.fishAll = 0;
-      // $scope.nutAll = 0;
-      // $scope.lactoseAll = 0;
-      // $scope.meatAll = 0;
     };
 
     $scope.addFood = function() {
@@ -261,13 +254,7 @@ module.controller('MainCtrl', [
       mealAmount = +mealAmount.toFixed(2);
       $scope.food_selection.push(food_selected);
 
-      console.log(mealAmount);
-
       validFoodItems.getValid(mealAmount, $scope.fishAll, $scope.nutAll, $scope.lactoseAll, $scope.meatAll);
-
-
-      // console.log($scope.food_selection);
-
     }
 
     $scope.remFromMenu = function(foodID, cost){
@@ -277,18 +264,11 @@ module.controller('MainCtrl', [
       mealAmount += cost;
       $scope.food_selection.splice(foodID, 1);
 
-      console.log(mealAmount);
-
       validFoodItems.getValid(mealAmount, $scope.fishAll, $scope.nutAll, $scope.lactoseAll, $scope.meatAll);
-
-
-      // console.log($scope.food_selection);
     }
-
 
     $scope.addTransaction = function() {
       var currentDate = new Date();
-      console.log(transactions);
       for(var i = 0; i < $scope.food_selection.length; i++) {
         transactions.create({
           foodId: $scope.food_selection[i].foodID,
@@ -351,7 +331,6 @@ module.controller('TrendsCtrl', [
       var total = 0;
 
       for (var i = 0; i < $scope.transactions.length; i++) {
-        console.log('Request: ' + restaurant + '; Transaction: ' + $scope.transactions[i].restaurant);
         if ($scope.transactions[i].restaurant === restaurant) {
           var found = 0;
           var trendId = $scope.transactions[i].foodId;
@@ -391,7 +370,7 @@ module.controller('TrendsCtrl', [
       });
     }
   }
-  ]);
+]);
 
 module.controller('HeaderCtrl', [
   '$scope',
@@ -400,4 +379,5 @@ module.controller('HeaderCtrl', [
     $scope.isActive = function(viewLocation) {
       return viewLocation === $location.path();
     };
-  }]);
+  }
+]);
