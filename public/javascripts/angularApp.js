@@ -38,7 +38,7 @@ module.config([
 
     $urlRouterProvider.otherwise('home');
   }
-]);
+  ]);
 
 module.factory('balances', [
   '$http',
@@ -61,7 +61,7 @@ module.factory('balances', [
 
   	return o;
   }
-]);
+  ]);
 
 module.factory('foodItems', [
   '$http',
@@ -89,7 +89,7 @@ module.factory('foodItems', [
   	};
   	return o;
   }
-]);
+  ]);
 
 
 module.factory('validFoodItems', [
@@ -108,12 +108,12 @@ module.factory('validFoodItems', [
         url: '/validFood',
         method: "GET",
         params: {amount: mealAmount}}).success(function(data) {
-        angular.copy(data, o.validFoodItems);
-      });
-    };
-    return o;
-  }
-]);
+          angular.copy(data, o.validFoodItems);
+        });
+      };
+      return o;
+    }
+    ]);
 
 module.factory('transactions', [
   '$http',
@@ -136,7 +136,7 @@ module.factory('transactions', [
 
     return o;
   }
-]);
+  ]);
 
 module.factory('restaurants', [
   function() {
@@ -170,6 +170,14 @@ module.controller('MainCtrl', [
     $scope.transactions = transactions.transactions;
     $scope.restaurants = restaurants.restaurants;
 
+
+
+
+    $scope.food_selection = [];
+    $scope.total = 0;
+
+
+
     $scope.getValidFoods = function() {
       if (!$scope.netid || $scope.netid === '') { return; }
 
@@ -180,12 +188,8 @@ module.controller('MainCtrl', [
       var timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
       var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-      // console.log(diffDays);
-      //include *3 for 3 meals a day
       var mealAmount = $scope.balance / (diffDays*2.5);
-
       validFoodItems.getValid(mealAmount);
-
       balances.create({
         netid: $scope.netid,
         balance: $scope.balance
@@ -197,8 +201,8 @@ module.controller('MainCtrl', [
 
     $scope.addFood = function() {
       if (!$scope.foodName || $scope.foodName === '' ||
-          !$scope.foodCost || $scope.foodCost === '' ||
-          !$scope.restaurant || $scope.restaurant === '')
+        !$scope.foodCost || $scope.foodCost === '' ||
+        !$scope.restaurant || $scope.restaurant === '')
         { return; }
 
       foodItems.create({
@@ -212,14 +216,34 @@ module.controller('MainCtrl', [
       $scope.restaurant = '';
     };
 
-    $scope.addTransaction = function(chosenId, restaurant) {
+    $scope.addToMenu = function(foodID, name, cost, restaurant){
+      var food_selected = {foodID: foodID, name: name, restaurant: restaurant, cost: cost};
+      $scope.total += cost;
+      $scope.food_selection.push(food_selected);
+      console.log($scope.food_selection);
+    }
+
+    $scope.remFromMenu = function(foodID, cost){
+
+      $scope.total -= cost;
+      $scope.food_selection.splice(foodID, 1);
+      console.log($scope.food_selection);
+    }
+
+
+    $scope.addTransaction = function() {
       var currentDate = new Date();
-      transactions.create({
-        foodId: chosenId,
-        date: currentDate,
-        restaurant: restaurant
-      });
-    };
+      // console.log('test');
+      for(var i = 0; i < $scope.food_selection.length; i++) {
+        transactions.create({
+          foodId: $scope.food_selection[i].foodID,
+          date: currentDate,
+          restaurant: $scope.food_selection[i].restaurant,
+        });
+      }
+      $scope.food_selection = [];
+      $scope.total = 0;
+    }
   }
 ]);
 
@@ -251,14 +275,14 @@ module.controller('TrendsCtrl', [
         for (var j = 0; j < $scope.trends.length; j++) {
           if ($scope.trends[j].foodId === trendId) {
             $scope.trends[j].count++;
-            $scope.trends[j].average = $scope.trends[j].count / $scope.transactions.length * 1000; // width is 614
+            $scope.trends[j].average = $scope.trends[j].count / $scope.transactions.length * 1200; // width is 614
             found = 1;
             break;
           }
         }
 
         if (!Boolean(found)) {
-          $scope.trends.push({foodId: trendId, count: 1, average: 1 / $scope.transactions.length * 1000});
+          $scope.trends.push({foodId: trendId, count: 1, average: 1 / $scope.transactions.length * 1200});
         }
       }
 
@@ -312,7 +336,7 @@ module.controller('TrendsCtrl', [
       });
     }
   }
-]);
+  ]);
 
 module.controller('HeaderCtrl', [
   '$scope',
