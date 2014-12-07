@@ -256,13 +256,10 @@ module.controller('MainCtrl', [
       var food_selected = {foodID: foodID, name: name, restaurant: restaurant, cost: cost};
       $scope.total += cost;
       $scope.total = +$scope.total.toFixed(2);
-
-
-      $scope.food_selection.push(food_selected);
-      console.log(cost);
-
       mealAmount -= cost;
+      $scope.food_selection.push(food_selected);
 
+      console.log(mealAmount);
 
       validFoodItems.getValid(mealAmount, $scope.fishAll, $scope.nutAll, $scope.lactoseAll, $scope.meatAll);
       
@@ -274,17 +271,14 @@ module.controller('MainCtrl', [
     $scope.remFromMenu = function(foodID, cost){
 
       $scope.total -= cost;
+      $scope.total = +$scope.total.toFixed(2);
       mealAmount += cost;
       $scope.food_selection.splice(foodID, 1);
 
-
+      console.log(mealAmount);
 
       validFoodItems.getValid(mealAmount, $scope.fishAll, $scope.nutAll, $scope.lactoseAll, $scope.meatAll);
       
-
-
-
-
 
       // console.log($scope.food_selection);
     }
