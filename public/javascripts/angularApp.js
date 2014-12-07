@@ -96,11 +96,11 @@ module.factory('validFoodItems', [
       return o.validFoodItems;
     };
 
-    o.getValid = function(mealAmount) {
+    o.getValid = function(mealAmount, fishAll, nutAll, lactoseAll, meatAll) {
       return $http({
         url: '/validFood',
         method: "GET",
-        params: {amount: mealAmount}}).success(function(data) {
+        params: {amount: mealAmount, hasFish: fishAll, hasNuts: nutAll, hasLactose:lactoseAll, hasMeat:meatAll}}).success(function(data) {
           angular.copy(data, o.validFoodItems);
         });
       };
@@ -143,17 +143,15 @@ module.controller('MainCtrl', [
     $scope.validFoodItems = validFoodItems.validFoodItems;
     $scope.transactions = transactions.transactions;
 
-
-
-
     $scope.food_selection = [];
     $scope.total = 0;
-
-
+    $scope.fishAll = false;
+    $scope.nutAll = false;
+    $scope.lactoseAll = false;
+    $scope.meatAll = false;
 
     $scope.getValidFoods = function() {
       if (!$scope.netid || $scope.netid === '') { return; }
-
 
       var currentDate = new Date();
       var endDate = new Date("12/15/2014");
@@ -162,14 +160,26 @@ module.controller('MainCtrl', [
       var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
       var mealAmount = $scope.balance / (diffDays*2.5);
-      validFoodItems.getValid(mealAmount);
+      validFoodItems.getValid(mealAmount, $scope.fishAll, $scope.nutAll, $scope.lactoseAll, $scope.meatAll);
+      
       balances.create({
         netid: $scope.netid,
-        balance: $scope.balance
+        balance: $scope.balance,
+        
+        fishAll: $scope.fishAll,
+        nutAll: $scope.nutAll,
+        lactoseAll: $scope.lactoseAll,
+        meatAll: $scope.meatAll
       });
+
+      // console.log(balances);
 
       $scope.netid = '';
       $scope.balance = '';
+      $scope.fishAll = false;
+      $scope.nutAll = false;
+      $scope.lactoseAll = false;
+      $scope.meatAll = false;
     };
 
     $scope.addFood = function() {
@@ -193,20 +203,20 @@ module.controller('MainCtrl', [
       var food_selected = {foodID: foodID, name: name, restaurant: restaurant, cost: cost};
       $scope.total += cost;
       $scope.food_selection.push(food_selected);
-      console.log($scope.food_selection);
+      // console.log($scope.food_selection);
     }
 
     $scope.remFromMenu = function(foodID, cost){
 
       $scope.total -= cost;
       $scope.food_selection.splice(foodID, 1);
-      console.log($scope.food_selection);
+      // console.log($scope.food_selection);
     }
 
 
     $scope.addTransaction = function() {
       var currentDate = new Date();
-      // console.log('test');
+      console.log(transactions);
       for(var i = 0; i < $scope.food_selection.length; i++) {
         transactions.create({
           foodId: $scope.food_selection[i]._id,
