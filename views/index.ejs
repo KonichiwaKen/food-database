@@ -221,32 +221,49 @@ html, body {
   <div class="page-header">
     <h1>Trends</h1>
   </div>
+  <div class="btn-group" role="group" aria-label="Button Group">
     <button type="button" class="btn btn-default" ng-click="foodTrends()">Food trends</button>
-    <br></br>
-    <div class="dropdown">
+    <div class="btn-group" role="group">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
         Restaurants
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-        <li role="presentation" ng-repeat="restaurant in restaurants"><a role="menuitem" tabindex="-1" ng-click="restaurantTrends(restaurant)">{{restaurant}}</a></li>
+        <li role="presentation" ng-repeat="restaurant in restaurants">
+          <a role="menuitem" tabindex="-1" ng-click="restaurantTrends(restaurant)">{{restaurant}}</a>
+        </li>
       </ul>
     </div>
-    <br></br>
-    <table class="table table-striped table-bordered table-hover table-condensed">
-      <thead>
-        <tr ng-if="trends.length != 0">
-          <th>Food</th>
-          <th>Count</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="trend in trends | orderBy: '-count'">
-          <td class="col-md-3">{{trend.name}}</td>
-          <td class="col-md-3">{{trend.count}}</td>
-        </tr>
-      </tbody>
-    </table>
+  </div>
+  <!--
+  <button type="button" class="btn btn-default" ng-click="foodTrends()">All food</button>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+      Restaurants
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      <li role="presentation" ng-repeat="restaurant in restaurants">
+        <a role="menuitem" tabindex="-1" ng-click="restaurantTrends(restaurant)">{{restaurant}}</a>
+      </li>
+    </ul>
+  </div>
+  -->
+  <br></br>
+  <table class="table table-striped table-bordered table-hover table-condensed">
+    <thead>
+      <tr ng-if="trends.length != 0">
+        <th>Food</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="trend in trends | orderBy: '-count'">
+        <td class="col-md-3">{{trend.name}}</td>
+        <td class="col-md-3">{{trend.count}}</td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="chart" ng-repeat="trend in trends | orderBy: '-count'">
     <div style="width: {{trend.average}}px;">{{trend.name}}</div>
