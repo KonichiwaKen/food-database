@@ -130,7 +130,7 @@ router.post('/food', function(req, res, next) {
 
 /* GET valid food items */
 router.get('/validFood', function(req, res, next) {
-  FoodItem.find({ cost: {$lte: req.query.amount}, hasFish:{$ne: req.query.hasFish}, hasNuts:{$ne: req.query.hasNuts}, hasLactose:{$ne: req.query.hasLactose}, hasMeat:{$ne: req.query.hasMeat} }, function(err, foodItems) {
+  FoodItem.find({ cost: {$lte: req.query.amount}, $or:[{hasFish:{$ne: req.query.hasFish}}, {hasFish:{$ne:true}}], $or:[{hasNuts:{$ne: req.query.hasNuts}}, {hasNuts:{$ne:true}}], $or:[{hasLactose:{$ne: req.query.hasLactose}}, {hasLactose:{$ne:true}}], $or:[{hasMeat:{$ne: req.query.hasMeat}}, {hasMeat:{$ne:true}}] }, function(err, foodItems) {
     if (err) { return next(err); }
 
     res.json(foodItems);
