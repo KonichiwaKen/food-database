@@ -172,10 +172,10 @@ module.controller('MainCtrl', [
 
     $scope.food_selection = [];
     $scope.total = 0;
-    $scope.fishAll = false;
-    $scope.nutAll = false;
-    $scope.lactoseAll = false;
-    $scope.meatAll = false;
+    $scope.fishAll = 0;
+    $scope.nutAll = 0;
+    $scope.lactoseAll = 0;
+    $scope.meatAll = 0;
 
     $scope.getValidFoods = function() {
       if (!$scope.netid || $scope.netid === '') { return; }
@@ -186,13 +186,36 @@ module.controller('MainCtrl', [
       var timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
       var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
+      if ($scope.fishAll) {
+        $scope.fishAll = 1;
+      } else {
+        $scope.fishAll = 0;
+      }
+
+      if ($scope.nutAll) {
+        $scope.nutAll = 1;
+      } else {
+        $scope.nutAll = 0;
+      }
+
+      if ($scope.lactoseAll) {
+        $scope.lactoseAll = 1;
+      } else {
+        $scope.lactoseAll = 0;
+      }
+
+      if ($scope.meatAll) {
+        $scope.meatAll = 1;
+      } else {
+        $scope.meatAll = 0;
+      }
+
       var mealAmount = $scope.balance / (diffDays*2.5);
       validFoodItems.getValid(mealAmount, $scope.fishAll, $scope.nutAll, $scope.lactoseAll, $scope.meatAll);
-      
+
       balances.create({
         netid: $scope.netid,
         balance: $scope.balance,
-        
         fishAll: $scope.fishAll,
         nutAll: $scope.nutAll,
         lactoseAll: $scope.lactoseAll,
@@ -203,10 +226,10 @@ module.controller('MainCtrl', [
 
       $scope.netid = '';
       $scope.balance = '';
-      $scope.fishAll = false;
-      $scope.nutAll = false;
-      $scope.lactoseAll = false;
-      $scope.meatAll = false;
+      $scope.fishAll = 0;
+      $scope.nutAll = 0;
+      $scope.lactoseAll = 0;
+      $scope.meatAll = 0;
     };
 
     $scope.addFood = function() {
@@ -229,8 +252,9 @@ module.controller('MainCtrl', [
     $scope.addToMenu = function(foodID, name, cost, restaurant){
       var food_selected = {foodID: foodID, name: name, restaurant: restaurant, cost: cost};
       $scope.total += cost;
+      $scope.total = +$scope.total.toFixed(2);
       $scope.food_selection.push(food_selected);
-      // console.log($scope.food_selection);
+      console.log(cost);
     }
 
     $scope.remFromMenu = function(foodID, cost){

@@ -1,235 +1,235 @@
 category,name,calories,cost,restaurant,hasFish,hasNuts,hasLactose,hasMeat,typeOfMeal
-Sandwich,Turkey Club,600,6.49,ABP,false,false,true,true,LD
-Sandwich,Caprese,550,6.19,ABP,false,false,true,false,LD
-Burger,Chipotle Black Bean Burger with Avacado,700,6.79,ABP,false,false,true,false,LD
-Burger,Black Angus Roast Beef & Herb Cheese,520,6.79,ABP,false,false,true,true,LD
-Sandwich,Chipotle Turkey & Avacado,670,6.99,ABP,false,false,true,true,LD
-Sandwich,Grilled Chicken Avacado,670,6.99,ABP,false,false,true,true,LD
-Sandwich,Classic Chicken Salad,450,5.89,ABP,false,true,true,true,LD
-Sandwich,Turkey & Swiss,740,6.39,ABP,false,true,true,true,LD
-Sandwich,Tuna Salad,470,5.99,ABP,true,false,false,true,LD
-Sandwich,Black Forest Ham & Chedder,640,5.99,ABP,false,false,true,true,LD
-Sandwich,Black Angus Roast Beef and Cheddar,510,6.39,ABP,false,false,true,true,LD
-Sandwich,Grilled Chicken  ,480,5.89,ABP,false,false,true,true,LD
-Sandwich,Thai Peanut Chicken,540,5.99,ABP,false,true,false,true,LD
-Sandwich,Chicken Caesar,610,5.89,ABP,true,false,true,true,LD
-Sandwich,Napa Chicken with Avacado,540,6.29,ABP,false,false,true,true,LD
-Salad,Chicken Cobb with Avacado,660,7.69,ABP,false,false,true,true,LD
-Salad,Vegetarian Deluxe,450,6.79,ABP,false,false,true,false,LD
-Salad,Chicken Caesar Asiago,450,6.99,ABP,false,false,true,true,LD
-Salad,Thai Peanut Chicken,390,7.09,ABP,false,false,false,false,LD
-Salad,Turkey Apple Brie,630,7.19,ABP,false,true,true,true,LD
-Salad,Tuna Garden,220,6.99,ABP,true,false,true,true,LD
-Salad,Southwest Chicken,530,7.29,ABP,false,false,false,true,LD
-Breakfast,Egg Whites & Cheddar,230,3.49,ABP,false,false,true,true,B 
-Breakfast,"Egg Whites, Cheddar & Avacado",310,4.19,ABP,false,false,true,true,B
-Breakfast,Smoked Salmon Wasabi,410,3.99,ABP,true,false,true,true,B
-Sandwich,BBQ Grilled Chicken,683,7.69,Loop,false,false,false,true,LD
-Burger,Black Bean,385,7.99,Loop,false,false,false,false,LD
-Wrap,Cajun Chicken,587,7.99,Loop,false,false,false,true,LD
-Wrap,Cajun Fish,382,8.99,Loop,true,false,false,false,LD
-Sandwich,Cajun Grilled Chicken,306,7.99,Loop,false,false,false,true,LD
-Sandwich,Cajun Grilled Fish,439,8.99,Loop,true,false,false,false,LD
-Sandwich,Cajun Grilled Tuna,443,7.99,Loop,true,false,false,false,LD
-Burger,Cheddar Bacon,794,8.69,Loop,false,false,true,true,LD
-Wrap,Chicken Ceaser,631,7.99,Loop,false,false,false,true,LD
-Sandwich,Grilled Chicken,567,7.69,Loop,false,false,false,true,LD
-Sandwich,Grilled Fish,449,8.99,Loop,true,false,false,false,LD
-Sandwich,Grilled Teriyaki Chicken,475,7.99,Loop,false,false,false,true,LD
-Sandwich,Grilled Tuna,468,7.99,Loop,true,false,false,false,LD
-Hot Dog,Chicago,429,3.99,Loop,false,false,false,true,LD
-Hot Dog,Chili Cheese,591,3.99,Loop,false,false,true,true,LD
-Hot Dog,Plain,390,2.99,Loop,false,false,false,true,LD
-Burger,Loop,614,6.99,Loop,false,false,false,true,LD
-Burger,Loop N Bleu,714,7.99,Loop,false,false,true,true,LD
-Burger,Loop N Cheese,704,8.69,Loop,false,false,true,true,LD
-Burger,Loop N Swiss,697,8.69,Loop,false,false,true,true,LD
-Sandwich,Portobello Mushroom ,337,8.69,Loop,false,false,false,true,LD
-Pizza,Artichoke,275,2.99,Loop,false,false,true,false,LD
-Pizza,BBQ,284,2.99,Loop,false,false,true,false,LD
-Pizza,Bianco,237,2.99,Loop,false,false,true,false,LD
-Pizza,California,194,2.99,Loop,false,false,true,false,LD
-Pizza,Cilantro,275,2.99,Loop,false,false,true,false,LD
-Pizza,Giardino,230,2.99,Loop,false,false,true,false,LD
-Pizza,Grilled Mushroom,269,2.99,Loop,false,false,true,false,LD
-Pizza,Margherita,212,2.99,Loop,false,false,true,false,LD
-Pizza,Mediterranean,239,2.99,Loop,true,false,true,false,LD
-Pizza,Rustica,273,2.99,Loop,false,false,true,false,LD
-Pizza,Sausage and Goat Cheese,255,2.99,Loop,false,false,true,true,LD
-Pizza,Veggie,233,1.99,Loop,false,false,true,false,LD
-Kids menu,Burger,411,4.99,Loop,false,false,true,true,LD
-Kids menu,Chicken Fingers,502,4.99,Loop,false,false,false,true,S
-Kids menu,Fries,189,1.99,Loop,false,false,false,false,S
-Kids menu,Grilled Cheese,433,2.99,Loop,false,false,true,false,S
-Kids menu,Mac N Cheese,340,2.99,Loop,false,false,true,false,S
-Kids menu,Hot Dog,390,1.99,Loop,false,false,false,true,S
-Salad,Ceasar with Chicken Large,289,8.99,Loop,false,false,false,true,LD
-Salad,Ceasar Large,149,7.99,Loop,false,false,false,false,LD
-Salad,Ceasar Side,80,3.69,Loop,false,false,false,false,LD
-Salad,Cajun Chicken,202,7.99,Loop,false,false,false,true,LD
-Salad,Crispy Chicken,499,7.99,Loop,false,false,false,true,LD
-Salad,Crunchy Broccoli,376,7.99,Loop,false,false,false,false,LD
-Salad,Gorgonzola Walnut,477,7.79,Loop,false,true,false,false,LD
-Salad,Greek Large,195,8.99,Loop,false,false,false,false,LD
-Salad,House with Chicken,198,8.99,Loop,false,false,false,true,LD
-Salad,House Large,60,8.99,Loop,false,false,false,false,LD
-Salad,House Side,40,3.99,Loop,false,false,false,false,LD
-Salad,"Walnut, Cranberry and Goat Cheese",531,7.99,Loop,false,true,true,false,LD
-Side,Bleu Cheese Chips,669,3.99,Loop,false,false,true,false,S
-Side,Focaccia with Marinera (1 slice),95,2.99,Loop,false,false,false,false,S
-Side,French Fries (side),449,2.99,Loop,false,false,false,false,S
-Side,Fruit Salad,70,3.69,Loop,false,false,false,false,S
-Side,Onion Rings (side),541,5.29,Loop,false,false,false,false,S
-Side,Steamed Broccoli,83,1.99,Loop,false,false,false,false,S
-Side,Steamed Veggies,55,1.99,Loop,false,false,false,false,S
-Soup,Beef Pot Roast,200,3.99,Loop,false,false,false,true,LDS
-Soup,Black Bean ,188,3.99,Loop,false,false,false,false,LDS
-Soup,Boston Clam Chowder,262,3.99,Loop,true,false,false,false,LDS
-Soup,Broccoli Cheese,268,3.99,Loop,false,false,true,false,LDS
-Soup,Chicken and Dumpling,4000,3.99,Loop,false,false,false,true,LDS
-Soup,Chicken Enchilada,325,3.99,Loop,false,false,true,true,LDS
-Soup,Chicken Gumbo,125,3.99,Loop,false,false,false,true,LDS
-Soup,Chicken Noodle,150,3.99,Loop,false,false,false,true,LDS
-Soup,Chili Cheese,527,3.99,Loop,false,false,true,true,LDS
-Soup,French Onion,100,3.99,Loop,false,false,false,false,LDS
-Soup,Italian Style Wedding,275,3.99,Loop,false,false,false,false,LDS
-Soup,Minestrone,100,3.99,Loop,false,false,false,false,LDS
-Soup,Mushroom and Brie Bisque,262,3.99,Loop,false,false,false,false,LDS
-Soup,Potato with Bacon Soup,256,3.99,Loop,false,false,false,true,LDS
-Soup,Shrimp and Black Bean ,175,3.99,Loop,true,false,false,false,LDS
-Soup,Twice Stuffed Baked Potato,412,3.99,Loop,false,false,false,false,LDS
-Soup,Vegetarian Vegetable Soup,100,3.99,Loop,false,false,false,false,LDS
-Soup,Tomato Bisque,356,3.99,Loop,false,false,false,false,LDS
-Panda Plate,Chow Mein,490,2,Panda Express,false,false,false,false,LDS
-Panda Plate,Fried Rice,530,2,Panda Express,false,false,false,true,LDS
-Panda Plate,Steamed Rice,380,2,Panda Express,false,false,false,false,LDS
-Panda Plate,Eggplant & Tofu,310,2,Panda Express,false,false,false,false,LD
-Panda Plate,Mixed Veggies (side),70,2,Panda Express,false,false,false,false,S
-Panda Plate,Mixed Veggies (entree),35,2,Panda Express,false,false,false,false,LD
-Panda Plate,Black Pepper,200,2,Panda Express,false,false,false,true,LD
-Panda Plate,Kung Pao,240,2,Panda Express,false,true,false,true,LD
-Panda Plate,Mandarin,310,2,Panda Express,false,false,false,true,LD
-Panda Plate,Mushroom and Brie Bisque,180,2,Panda Express,false,false,false,true,LD
-Panda Plate,Orange,420,2,Panda Express,false,false,false,true,LD
-Panda Plate,Potato with Bacon Soup,190,2,Panda Express,false,false,false,true,LD
-Panda Plate,String Bean Breast,160,2,Panda Express,false,false,false,true,LD
-Panda Plate,Sweetfire Breast,440,2,Panda Express,false,false,false,true,LD
-Panda Plate,Sweet & Sour Breast,380,2,Panda Express,false,false,false,true,LD
-Panda Plate,Thai Cashew Breast,220,2,Panda Express,false,true,false,true,LD
-Panda Plate,Beijing ,690,2,Panda Express,false,false,false,true,LD
-Panda Plate,Broccoli Cheese,120,2,Panda Express,false,false,true,true,LD
-Panda Plate,Shanghai Angus,220,2,Panda Express,false,false,false,true,LD
-Panda Plate,BBQ,360,2,Panda Express,false,false,false,true,LD
-Panda Plate,Sweet & Sour,390,2,Panda Express,false,false,false,true,LD
-Panda Plate,Crispy,260,2,Panda Express,false,false,false,true,LD
-Panda Plate,Golden Treasure,390,2,Panda Express,false,false,false,true,LD
-Panda Plate,Honey Walnut,370,2,Panda Express,false,false,false,true,LD
-Panda Plate,Peppercorn,170,2,Panda Express,false,false,false,true,LDS
-Soup,Hot & Sour,100,4.99,Panda Express,false,false,false,false,LDS
-Quesadilla,Breakfast Quesadilla,600,6.25,Pitchfork Provisions,false,false,true,false,B
-Biscuit,Biscuit Your Way ,350,2,Pitchfork Provisions,false,false,true,false,B
-Pancake,Half Stack,340,4,Pitchfork Provisions,false,false,true,false,BLD
-Pancake,Full Stack,680,6,Pitchfork Provisions,false,false,true,false,BLD
-Egg,BLT,420,8,Pitchfork Provisions,false,false,false,true,LD
-Egg,Eggs Your Way,360,6.25,Pitchfork Provisions,false,false,false,true,B
-Tofu,Tofu Scramble,239,7.5,Pitchfork Provisions,false,false,false,false,LD
-Omelette,Ham and Cheddar,450,7.5,Pitchfork Provisions,false,false,true,true,BLD
-Omelette,Mexican Omelette,430,7.5,Pitchfork Provisions,false,false,true,true,BLD
-Omelette,Veggie,415,7.5,Pitchfork Provisions,false,false,false,false,LD
-Chicken,Pommes Frites,290,13,Pitchfork Provisions,false,false,false,false,LD
-Pasta,Spagheti and Metaballs,1120,12,Pitchfork Provisions,false,false,false,false,LD
-Pasta,Spaghetti and Marinera Vegetarian,418,10,Pitchfork Provisions,false,false,false,false,LD
-Chicken,Vindaloo,300,12,Pitchfork Provisions,false,false,false,true,LD
-Steak,Seared Flat Iron Steak,320,15,Pitchfork Provisions,false,false,false,true,LD
-Pasta,Eggplant Parmesan Vegetarian,350,13,Pitchfork Provisions,false,false,false,true,LD
-Fish,Salmon Hot Pot,346,14.5,Pitchfork Provisions,true,false,false,true,LD
-Fish,Udon Hot Pot,275,10.5,Pitchfork Provisions,false,false,false,true,LD
-Pot Roast,Yankee Pot Roast,451,15,Pitchfork Provisions,false,false,false,true,LD
-Sandwich,Falafel in Pita Vegan,338,8,Pitchfork Provisions,false,true,false,false,LD
-Sandwich,Grilled Cheese,367,6,Pitchfork Provisions,false,false,true,false,LD
-Sandwich,Crab Cake,320,12,Pitchfork Provisions,true,false,false,false,LD
-Burger,Black Angus,380,6.5,Pitchfork Provisions,false,false,false,true,LD
-Sandwich,reuben,620,10,Pitchfork Provisions,false,false,false,true,LD
-Sandwich,Grilled Chicken,410,9.5,Pitchfork Provisions,false,false,false,true,LD
-Sandwich,Shrimp Po' Boy,321,10.5,Pitchfork Provisions,true,false,false,true,LD
-Sandwich,The Godfather,625,9.5,Pitchfork Provisions,false,false,true,true,LD
-Sandwich,Veggie Single Vegetarian,360,8.5,Pitchfork Provisions,false,false,false,false,LD
-Sandwich,Tuna Melt,563,9.5,Pitchfork Provisions,true,false,true,true,LD
-Salad,Chopped Mexican Vegetarian,460,9.5,Pitchfork Provisions,false,false,false,false,LD
-Salad,French Market Vegetarian,318,10,Pitchfork Provisions,false,false,false,false,LD
-Salad,Sesame Noodle Vegetarian,350,9.5,Pitchfork Provisions,false,false,false,false,LD
-Salad,Meze Platter Vegetarian,640,9.5,Pitchfork Provisions,false,false,false,false,LD
-Salad,California Club Salad,520,10,Pitchfork Provisions,false,false,false,false,LD
-Dessert,Cake,390,4,Pitchfork Provisions,false,false,false,false,S
-Dessert,Cupcake,330,4,Pitchfork Provisions,false,false,false,false,S
-Dessert,Pies,411,4,Pitchfork Provisions,false,false,false,false,S
-Dessert,Cheesecake,257,4,Pitchfork Provisions,false,false,true,false,BLD
-Dessert,Tart,365,4,Pitchfork Provisions,false,false,false,false,S
-Dessert,Float,276,4,Pitchfork Provisions,false,false,false,false,S
-Rice & Noodles,Steamed Rice,380,4.99,Panda Express,false,false,false,false,LDS
-Chow Mein Bowl,Eggplant & Tofu,310,4.99,Panda Express,false,false,false,false,LD
-Chow Mein Bowl,Mixed Veggies (side),70,4.99,Panda Express,false,false,false,false,S
-Chow Mein Bowl,Mixed Veggies (entree),35,4.99,Panda Express,false,false,false,false,LD
-Chow Mein Bowl,Black Pepper,200,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Kung Pao,240,4.99,Panda Express,false,true,false,true,LD
-Chow Mein Bowl,Mandarin,310,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Mushroom and Brie Bisque,180,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Orange,420,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Potato with Bacon Soup,190,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,String Bean Breast,160,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Sweetfire Breast,440,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Sweet & Sour Breast,380,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Thai Cashew Breast,220,4.99,Panda Express,false,true,false,true,LD
-Chow Mein Bowl,Beijing ,690,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Broccoli Cheese,120,4.99,Panda Express,false,false,true,true,LD
-Chow Mein Bowl,Shanghai Angus,220,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,BBQ,360,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Sweet & Sour,390,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Crispy,260,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Golden Treasure,390,4.99,Panda Express,false,false,false,true,LD
-Chow Mein Bowl,Honey Walnut,370,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Peppercorn,170,4.99,Panda Express,false,false,false,true,LDS
-Fried Rice Bowl,Eggplant & Tofu,310,4.99,Panda Express,false,false,false,false,LD
-Fried Rice Bowl,Mixed Veggies (side),70,4.99,Panda Express,false,false,false,false,S
-Fried Rice Bowl,Mixed Veggies (entree),35,4.99,Panda Express,false,false,false,false,LD
-Fried Rice Bowl,Black Pepper,200,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Kung Pao,240,4.99,Panda Express,false,true,false,true,LD
-Fried Rice Bowl,Mandarin,310,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Mushroom and Brie Bisque,180,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Orange,420,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Potato with Bacon Soup,190,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,String Bean Breast,160,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Sweetfire Breast,440,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Sweet & Sour Breast,380,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Thai Cashew Breast,220,4.99,Panda Express,false,true,false,true,LD
-Fried Rice Bowl,Beijing ,690,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Broccoli Cheese,120,4.99,Panda Express,false,false,true,true,LD
-Fried Rice Bowl,Shanghai Angus,220,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,BBQ,360,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Sweet & Sour,390,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Crispy,260,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Golden Treasure,390,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Honey Walnut,370,4.99,Panda Express,false,false,false,true,LD
-Fried Rice Bowl,Peppercorn,170,4.99,Panda Express,false,false,false,true,LDS
-Steamed Rice Bowl,Eggplant & Tofu,310,4.99,Panda Express,false,false,false,false,LD
-Steamed Rice Bowl,Mixed Veggies (side),70,4.99,Panda Express,false,false,false,false,S
-Steamed Rice Bowl,Mixed Veggies (entree),35,4.99,Panda Express,false,false,false,false,LD
-Steamed Rice Bowl,Black Pepper,200,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Kung Pao,240,4.99,Panda Express,false,true,false,true,LD
-Steamed Rice Bowl,Mandarin,310,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Mushroom and Brie Bisque,180,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Orange,420,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Potato with Bacon Soup,190,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,String Bean Breast,160,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Sweetfire Breast,440,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Sweet & Sour Breast,380,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Thai Cashew Breast,220,4.99,Panda Express,false,true,false,true,LD
-Steamed Rice Bowl,Beijing ,690,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Broccoli Cheese,120,4.99,Panda Express,false,false,true,true,LD
-Steamed Rice Bowl,Shanghai Angus,220,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,BBQ,360,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Sweet & Sour,390,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Crispy,260,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Golden Treasure,390,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Honey Walnut,370,4.99,Panda Express,false,false,false,true,LD
-Steamed Rice Bowl,Peppercorn,170,4.99,Panda Express,false,false,false,true,LDS
+Sandwich,Turkey Club,600,6.49,ABP,0,0,1,1,LD
+Sandwich,Caprese,550,6.19,ABP,0,0,1,0,LD
+Burger,Chipotle Black Bean Burger with Avacado,700,6.79,ABP,0,0,1,0,LD
+Burger,Black Angus Roast Beef & Herb Cheese,520,6.79,ABP,0,0,1,1,LD
+Sandwich,Chipotle Turkey & Avacado,670,6.99,ABP,0,0,1,1,LD
+Sandwich,Grilled Chicken Avacado,670,6.99,ABP,0,0,1,1,LD
+Sandwich,Classic Chicken Salad,450,5.89,ABP,0,1,1,1,LD
+Sandwich,Turkey & Swiss,740,6.39,ABP,0,1,1,1,LD
+Sandwich,Tuna Salad,470,5.99,ABP,1,0,0,1,LD
+Sandwich,Black Forest Ham & Chedder,640,5.99,ABP,0,0,1,1,LD
+Sandwich,Black Angus Roast Beef and Cheddar,510,6.39,ABP,0,0,1,1,LD
+Sandwich,Grilled Chicken  ,480,5.89,ABP,0,0,1,1,LD
+Sandwich,Thai Peanut Chicken,540,5.99,ABP,0,1,0,1,LD
+Sandwich,Chicken Caesar,610,5.89,ABP,1,0,1,1,LD
+Sandwich,Napa Chicken with Avacado,540,6.29,ABP,0,0,1,1,LD
+Salad,Chicken Cobb with Avacado,660,7.69,ABP,0,0,1,1,LD
+Salad,Vegetarian Deluxe,450,6.79,ABP,0,0,1,0,LD
+Salad,Chicken Caesar Asiago,450,6.99,ABP,0,0,1,1,LD
+Salad,Thai Peanut Chicken,390,7.09,ABP,0,0,0,0,LD
+Salad,Turkey Apple Brie,630,7.19,ABP,0,1,1,1,LD
+Salad,Tuna Garden,220,6.99,ABP,1,0,1,1,LD
+Salad,Southwest Chicken,530,7.29,ABP,0,0,0,1,LD
+Breakfast,Egg Whites & Cheddar,230,3.49,ABP,0,0,1,1,B
+Breakfast,"Egg Whites, Cheddar & Avacado",310,4.19,ABP,0,0,1,1,B
+Breakfast,Smoked Salmon Wasabi,410,3.99,ABP,1,0,1,1,B
+Sandwich,BBQ Grilled Chicken,683,7.69,Loop,0,0,0,1,LD
+Burger,Black Bean,385,7.99,Loop,0,0,0,0,LD
+Wrap,Cajun Chicken,587,7.99,Loop,0,0,0,1,LD
+Wrap,Cajun Fish,382,8.99,Loop,1,0,0,0,LD
+Sandwich,Cajun Grilled Chicken,306,7.99,Loop,0,0,0,1,LD
+Sandwich,Cajun Grilled Fish,439,8.99,Loop,1,0,0,0,LD
+Sandwich,Cajun Grilled Tuna,443,7.99,Loop,1,0,0,0,LD
+Burger,Cheddar Bacon,794,8.69,Loop,0,0,1,1,LD
+Wrap,Chicken Ceaser,631,7.99,Loop,0,0,0,1,LD
+Sandwich,Grilled Chicken,567,7.69,Loop,0,0,0,1,LD
+Sandwich,Grilled Fish,449,8.99,Loop,1,0,0,0,LD
+Sandwich,Grilled Teriyaki Chicken,475,7.99,Loop,0,0,0,1,LD
+Sandwich,Grilled Tuna,468,7.99,Loop,1,0,0,0,LD
+Hot Dog,Chicago,429,3.99,Loop,0,0,0,1,LD
+Hot Dog,Chili Cheese,591,3.99,Loop,0,0,1,1,LD
+Hot Dog,Plain,390,2.99,Loop,0,0,0,1,LD
+Burger,Loop,614,6.99,Loop,0,0,0,1,LD
+Burger,Loop N Bleu,714,7.99,Loop,0,0,1,1,LD
+Burger,Loop N Cheese,704,8.69,Loop,0,0,1,1,LD
+Burger,Loop N Swiss,697,8.69,Loop,0,0,1,1,LD
+Sandwich,Portobello Mushroom ,337,8.69,Loop,0,0,0,1,LD
+Pizza,Artichoke,275,2.99,Loop,0,0,1,0,LD
+Pizza,BBQ,284,2.99,Loop,0,0,1,0,LD
+Pizza,Bianco,237,2.99,Loop,0,0,1,0,LD
+Pizza,California,194,2.99,Loop,0,0,1,0,LD
+Pizza,Cilantro,275,2.99,Loop,0,0,1,0,LD
+Pizza,Giardino,230,2.99,Loop,0,0,1,0,LD
+Pizza,Grilled Mushroom,269,2.99,Loop,0,0,1,0,LD
+Pizza,Margherita,212,2.99,Loop,0,0,1,0,LD
+Pizza,Mediterranean,239,2.99,Loop,1,0,1,0,LD
+Pizza,Rustica,273,2.99,Loop,0,0,1,0,LD
+Pizza,Sausage and Goat Cheese,255,2.99,Loop,0,0,1,1,LD
+Pizza,Veggie,233,1.99,Loop,0,0,1,0,LD
+Kids menu,Burger,411,4.99,Loop,0,0,1,1,LD
+Kids menu,Chicken Fingers,502,4.99,Loop,0,0,0,1,S
+Kids menu,Fries,189,1.99,Loop,0,0,0,0,S
+Kids menu,Grilled Cheese,433,2.99,Loop,0,0,1,0,S
+Kids menu,Mac N Cheese,340,2.99,Loop,0,0,1,0,S
+Kids menu,Hot Dog,390,1.99,Loop,0,0,0,1,S
+Salad,Ceasar with Chicken Large,289,8.99,Loop,0,0,0,1,LD
+Salad,Ceasar Large,149,7.99,Loop,0,0,0,0,LD
+Salad,Ceasar Side,80,3.69,Loop,0,0,0,0,LD
+Salad,Cajun Chicken,202,7.99,Loop,0,0,0,1,LD
+Salad,Crispy Chicken,499,7.99,Loop,0,0,0,1,LD
+Salad,Crunchy Broccoli,376,7.99,Loop,0,0,0,0,LD
+Salad,Gorgonzola Walnut,477,7.79,Loop,0,1,0,0,LD
+Salad,Greek Large,195,8.99,Loop,0,0,0,0,LD
+Salad,House with Chicken,198,8.99,Loop,0,0,0,1,LD
+Salad,House Large,60,8.99,Loop,0,0,0,0,LD
+Salad,House Side,40,3.99,Loop,0,0,0,0,LD
+Salad,"Walnut, Cranberry and Goat Cheese",531,7.99,Loop,0,1,1,0,LD
+Side,Bleu Cheese Chips,669,3.99,Loop,0,0,1,0,S
+Side,Focaccia with Marinera (1 slice),95,2.99,Loop,0,0,0,0,S
+Side,French Fries (side),449,2.99,Loop,0,0,0,0,S
+Side,Fruit Salad,70,3.69,Loop,0,0,0,0,S
+Side,Onion Rings (side),541,5.29,Loop,0,0,0,0,S
+Side,Steamed Broccoli,83,1.99,Loop,0,0,0,0,S
+Side,Steamed Veggies,55,1.99,Loop,0,0,0,0,S
+Soup,Beef Pot Roast,200,3.99,Loop,0,0,0,1,LDS
+Soup,Black Bean ,188,3.99,Loop,0,0,0,0,LDS
+Soup,Boston Clam Chowder,262,3.99,Loop,1,0,0,0,LDS
+Soup,Broccoli Cheese,268,3.99,Loop,0,0,1,0,LDS
+Soup,Chicken and Dumpling,4000,3.99,Loop,0,0,0,1,LDS
+Soup,Chicken Enchilada,325,3.99,Loop,0,0,1,1,LDS
+Soup,Chicken Gumbo,125,3.99,Loop,0,0,0,1,LDS
+Soup,Chicken Noodle,150,3.99,Loop,0,0,0,1,LDS
+Soup,Chili Cheese,527,3.99,Loop,0,0,1,1,LDS
+Soup,French Onion,100,3.99,Loop,0,0,0,0,LDS
+Soup,Italian Style Wedding,275,3.99,Loop,0,0,0,0,LDS
+Soup,Minestrone,100,3.99,Loop,0,0,0,0,LDS
+Soup,Mushroom and Brie Bisque,262,3.99,Loop,0,0,0,0,LDS
+Soup,Potato with Bacon Soup,256,3.99,Loop,0,0,0,1,LDS
+Soup,Shrimp and Black Bean ,175,3.99,Loop,1,0,0,0,LDS
+Soup,Twice Stuffed Baked Potato,412,3.99,Loop,0,0,0,0,LDS
+Soup,Vegetarian Vegetable Soup,100,3.99,Loop,0,0,0,0,LDS
+Soup,Tomato Bisque,356,3.99,Loop,0,0,0,0,LDS
+Panda Plate,Chow Mein,490,2,Panda Express,0,0,0,0,LDS
+Panda Plate,Fried Rice,530,2,Panda Express,0,0,0,1,LDS
+Panda Plate,Steamed Rice,380,2,Panda Express,0,0,0,0,LDS
+Panda Plate,Eggplant & Tofu,310,2,Panda Express,0,0,0,0,LD
+Panda Plate,Mixed Veggies (side),70,2,Panda Express,0,0,0,0,S
+Panda Plate,Mixed Veggies (entree),35,2,Panda Express,0,0,0,0,LD
+Panda Plate,Black Pepper,200,2,Panda Express,0,0,0,1,LD
+Panda Plate,Kung Pao,240,2,Panda Express,0,1,0,1,LD
+Panda Plate,Mandarin,310,2,Panda Express,0,0,0,1,LD
+Panda Plate,Mushroom and Brie Bisque,180,2,Panda Express,0,0,0,1,LD
+Panda Plate,Orange,420,2,Panda Express,0,0,0,1,LD
+Panda Plate,Potato with Bacon Soup,190,2,Panda Express,0,0,0,1,LD
+Panda Plate,String Bean Breast,160,2,Panda Express,0,0,0,1,LD
+Panda Plate,Sweetfire Breast,440,2,Panda Express,0,0,0,1,LD
+Panda Plate,Sweet & Sour Breast,380,2,Panda Express,0,0,0,1,LD
+Panda Plate,Thai Cashew Breast,220,2,Panda Express,0,1,0,1,LD
+Panda Plate,Beijing ,690,2,Panda Express,0,0,0,1,LD
+Panda Plate,Broccoli Cheese,120,2,Panda Express,0,0,1,1,LD
+Panda Plate,Shanghai Angus,220,2,Panda Express,0,0,0,1,LD
+Panda Plate,BBQ,360,2,Panda Express,0,0,0,1,LD
+Panda Plate,Sweet & Sour,390,2,Panda Express,0,0,0,1,LD
+Panda Plate,Crispy,260,2,Panda Express,0,0,0,1,LD
+Panda Plate,Golden Treasure,390,2,Panda Express,0,0,0,1,LD
+Panda Plate,Honey Walnut,370,2,Panda Express,0,0,0,1,LD
+Panda Plate,Peppercorn,170,2,Panda Express,0,0,0,1,LDS
+Soup,Hot & Sour,100,4.99,Panda Express,0,0,0,0,LDS
+Quesadilla,Breakfast Quesadilla,600,6.25,Pitchfork Provisions,0,0,1,0,B
+Biscuit,Biscuit Your Way ,350,2,Pitchfork Provisions,0,0,1,0,B
+Pancake,Half Stack,340,4,Pitchfork Provisions,0,0,1,0,BLD
+Pancake,Full Stack,680,6,Pitchfork Provisions,0,0,1,0,BLD
+Egg,BLT,420,8,Pitchfork Provisions,0,0,0,1,LD
+Egg,Eggs Your Way,360,6.25,Pitchfork Provisions,0,0,0,1,B
+Tofu,Tofu Scramble,239,7.5,Pitchfork Provisions,0,0,0,0,LD
+Omelette,Ham and Cheddar,450,7.5,Pitchfork Provisions,0,0,1,1,BLD
+Omelette,Mexican Omelette,430,7.5,Pitchfork Provisions,0,0,1,1,BLD
+Omelette,Veggie,415,7.5,Pitchfork Provisions,0,0,0,0,LD
+Chicken,Pommes Frites,290,13,Pitchfork Provisions,0,0,0,0,LD
+Pasta,Spagheti and Metaballs,1120,12,Pitchfork Provisions,0,0,0,0,LD
+Pasta,Spaghetti and Marinera Vegetarian,418,10,Pitchfork Provisions,0,0,0,0,LD
+Chicken,Vindaloo,300,12,Pitchfork Provisions,0,0,0,1,LD
+Steak,Seared Flat Iron Steak,320,15,Pitchfork Provisions,0,0,0,1,LD
+Pasta,Eggplant Parmesan Vegetarian,350,13,Pitchfork Provisions,0,0,0,1,LD
+Fish,Salmon Hot Pot,346,14.5,Pitchfork Provisions,1,0,0,1,LD
+Fish,Udon Hot Pot,275,10.5,Pitchfork Provisions,0,0,0,1,LD
+Pot Roast,Yankee Pot Roast,451,15,Pitchfork Provisions,0,0,0,1,LD
+Sandwich,Falafel in Pita Vegan,338,8,Pitchfork Provisions,0,1,0,0,LD
+Sandwich,Grilled Cheese,367,6,Pitchfork Provisions,0,0,1,0,LD
+Sandwich,Crab Cake,320,12,Pitchfork Provisions,1,0,0,0,LD
+Burger,Black Angus,380,6.5,Pitchfork Provisions,0,0,0,1,LD
+Sandwich,reuben,620,10,Pitchfork Provisions,0,0,0,1,LD
+Sandwich,Grilled Chicken,410,9.5,Pitchfork Provisions,0,0,0,1,LD
+Sandwich,Shrimp Po' Boy,321,10.5,Pitchfork Provisions,1,0,0,1,LD
+Sandwich,The Godfather,625,9.5,Pitchfork Provisions,0,0,1,1,LD
+Sandwich,Veggie Single Vegetarian,360,8.5,Pitchfork Provisions,0,0,0,0,LD
+Sandwich,Tuna Melt,563,9.5,Pitchfork Provisions,1,0,1,1,LD
+Salad,Chopped Mexican Vegetarian,460,9.5,Pitchfork Provisions,0,0,0,0,LD
+Salad,French Market Vegetarian,318,10,Pitchfork Provisions,0,0,0,0,LD
+Salad,Sesame Noodle Vegetarian,350,9.5,Pitchfork Provisions,0,0,0,0,LD
+Salad,Meze Platter Vegetarian,640,9.5,Pitchfork Provisions,0,0,0,0,LD
+Salad,California Club Salad,520,10,Pitchfork Provisions,0,0,0,0,LD
+Dessert,Cake,390,4,Pitchfork Provisions,0,0,0,0,S
+Dessert,Cupcake,330,4,Pitchfork Provisions,0,0,0,0,S
+Dessert,Pies,411,4,Pitchfork Provisions,0,0,0,0,S
+Dessert,Cheesecake,257,4,Pitchfork Provisions,0,0,1,0,BLD
+Dessert,Tart,365,4,Pitchfork Provisions,0,0,0,0,S
+Dessert,Float,276,4,Pitchfork Provisions,0,0,0,0,S
+Rice & Noodles,Steamed Rice,380,4.99,Panda Express,0,0,0,0,LDS
+Chow Mein Bowl,Eggplant & Tofu,310,4.99,Panda Express,0,0,0,0,LD
+Chow Mein Bowl,Mixed Veggies (side),70,4.99,Panda Express,0,0,0,0,S
+Chow Mein Bowl,Mixed Veggies (entree),35,4.99,Panda Express,0,0,0,0,LD
+Chow Mein Bowl,Black Pepper,200,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Kung Pao,240,4.99,Panda Express,0,1,0,1,LD
+Chow Mein Bowl,Mandarin,310,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Mushroom and Brie Bisque,180,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Orange,420,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Potato with Bacon Soup,190,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,String Bean Breast,160,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Sweetfire Breast,440,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Sweet & Sour Breast,380,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Thai Cashew Breast,220,4.99,Panda Express,0,1,0,1,LD
+Chow Mein Bowl,Beijing ,690,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Broccoli Cheese,120,4.99,Panda Express,0,0,1,1,LD
+Chow Mein Bowl,Shanghai Angus,220,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,BBQ,360,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Sweet & Sour,390,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Crispy,260,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Golden Treasure,390,4.99,Panda Express,0,0,0,1,LD
+Chow Mein Bowl,Honey Walnut,370,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Peppercorn,170,4.99,Panda Express,0,0,0,1,LDS
+Fried Rice Bowl,Eggplant & Tofu,310,4.99,Panda Express,0,0,0,0,LD
+Fried Rice Bowl,Mixed Veggies (side),70,4.99,Panda Express,0,0,0,0,S
+Fried Rice Bowl,Mixed Veggies (entree),35,4.99,Panda Express,0,0,0,0,LD
+Fried Rice Bowl,Black Pepper,200,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Kung Pao,240,4.99,Panda Express,0,1,0,1,LD
+Fried Rice Bowl,Mandarin,310,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Mushroom and Brie Bisque,180,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Orange,420,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Potato with Bacon Soup,190,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,String Bean Breast,160,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Sweetfire Breast,440,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Sweet & Sour Breast,380,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Thai Cashew Breast,220,4.99,Panda Express,0,1,0,1,LD
+Fried Rice Bowl,Beijing ,690,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Broccoli Cheese,120,4.99,Panda Express,0,0,1,1,LD
+Fried Rice Bowl,Shanghai Angus,220,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,BBQ,360,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Sweet & Sour,390,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Crispy,260,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Golden Treasure,390,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Honey Walnut,370,4.99,Panda Express,0,0,0,1,LD
+Fried Rice Bowl,Peppercorn,170,4.99,Panda Express,0,0,0,1,LDS
+Steamed Rice Bowl,Eggplant & Tofu,310,4.99,Panda Express,0,0,0,0,LD
+Steamed Rice Bowl,Mixed Veggies (side),70,4.99,Panda Express,0,0,0,0,S
+Steamed Rice Bowl,Mixed Veggies (entree),35,4.99,Panda Express,0,0,0,0,LD
+Steamed Rice Bowl,Black Pepper,200,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Kung Pao,240,4.99,Panda Express,0,1,0,1,LD
+Steamed Rice Bowl,Mandarin,310,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Mushroom and Brie Bisque,180,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Orange,420,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Potato with Bacon Soup,190,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,String Bean Breast,160,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Sweetfire Breast,440,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Sweet & Sour Breast,380,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Thai Cashew Breast,220,4.99,Panda Express,0,1,0,1,LD
+Steamed Rice Bowl,Beijing ,690,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Broccoli Cheese,120,4.99,Panda Express,0,0,1,1,LD
+Steamed Rice Bowl,Shanghai Angus,220,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,BBQ,360,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Sweet & Sour,390,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Crispy,260,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Golden Treasure,390,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Honey Walnut,370,4.99,Panda Express,0,0,0,1,LD
+Steamed Rice Bowl,Peppercorn,170,4.99,Panda Express,0,0,0,1,LDS
