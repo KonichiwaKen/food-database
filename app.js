@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost/snacktrack')
 mongoose.connect('mongodb://ken:%JuoHO3m1HTz@dogen.mongohq.com:10014/app32294952');
+// mongoose.connect('mongodb://localhost/snacktrack')
 require('./models/Balances');
 require('./models/FoodItems');
 require('./models/Transactions');
