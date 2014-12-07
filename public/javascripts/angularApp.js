@@ -29,7 +29,8 @@ module.config([
       templateUrl: '/trends.html',
       controller: 'TrendsCtrl',
       resolve: {
-        postPromise: ['transactions', function(transactions) {
+        postPromise: ['transactions', 'foodItems', function(transactions, foodItems) {
+          foodItems.getAll();
           return transactions.getAll();
         }]
       }
@@ -64,7 +65,8 @@ module.factory('balances', [
 
 module.factory('foodItems', [
   '$http',
-  function($http) {
+  'restaurants',
+  function($http, restaurants) {
   	var o = {
   		foodItems: []
   	};
@@ -72,6 +74,11 @@ module.factory('foodItems', [
   	o.getAll = function() {
   		return $http.get('/food').success(function(data) {
   			angular.copy(data, o.foodItems);
+        for (var i = 0; i < o.foodItems.length; i++) {
+          if (restaurants.contains(o.foodItems[i].restaurant) === -1) {
+            restaurants.create(o.foodItems[i].restaurant);
+          }
+        }
   		});
   	};
 
@@ -131,17 +138,37 @@ module.factory('transactions', [
   }
 ]);
 
+module.factory('restaurants', [
+  function() {
+    var o = {
+      restaurants: []
+    };
+
+    o.create = function(name) {
+      o.restaurants.push(name);
+    }
+
+    o.contains = function(name) {
+      return o.restaurants.indexOf(name);
+    }
+
+    return o;
+  }
+]);
+
 module.controller('MainCtrl', [
 	'$scope',
 	'balances',
 	'foodItems',
 	'validFoodItems',
   'transactions',
-	function($scope, balances, foodItems, validFoodItems, transactions) {
+  'restaurants',
+	function($scope, balances, foodItems, validFoodItems, transactions, restaurants) {
     $scope.balances = balances.balances;
     $scope.foodItems = foodItems.foodItems;
     $scope.validFoodItems = validFoodItems.validFoodItems;
     $scope.transactions = transactions.transactions;
+    $scope.restaurants = restaurants.restaurants;
 
     $scope.getValidFoods = function() {
       if (!$scope.netid || $scope.netid === '') { return; }
@@ -185,11 +212,12 @@ module.controller('MainCtrl', [
       $scope.restaurant = '';
     };
 
-    $scope.addTransaction = function(chosenId) {
+    $scope.addTransaction = function(chosenId, restaurant) {
       var currentDate = new Date();
       transactions.create({
         foodId: chosenId,
-        date: currentDate
+        date: currentDate,
+        restaurant: restaurant
       });
     };
   }
@@ -199,8 +227,10 @@ module.controller('TrendsCtrl', [
   '$scope',
   '$http',
   'transactions',
-  function($scope, $http, transactions) {
+  'restaurants',
+  function($scope, $http, transactions, restaurants) {
     $scope.transactions = transactions.transactions;
+    $scope.restaurants = restaurants.restaurants;
     $scope.trends = [];
 
     $scope.allTransactions = function() {
@@ -237,9 +267,39 @@ module.controller('TrendsCtrl', [
       }
     }
 
+    $scope.restaurantTrends = function(restaurant) {
+      $scope.trends = [];
+      var total = 0;
+
+      for (var i = 0; i < $scope.transactions.length; i++) {
+        console.log('Request: ' + restaurant + '; Transaction: ' + $scope.transactions[i].restaurant);
+        if ($scope.transactions[i].restaurant === restaurant) {
+          var found = 0;
+          var trendId = $scope.transactions[i].foodId;
+          total++;
+
+          for (var j = 0; j < $scope.trends.length; j++) {
+            if ($scope.trends[j].foodId === trendId) {
+              $scope.trends[j].count++;
+              found = 1;
+              break;
+            }
+          }
+
+          if (!Boolean(found)) {
+            $scope.trends.push({foodId: trendId, count: 1});
+          }
+        }
+      }
+
+      for (var i = 0; i < $scope.trends.length; i++) {
+        getFoodInfo($scope.trends[i]);
+        $scope.trends[i].average = $scope.trends[i].count / total * 800;
+      }
+    }
+
     getFoodInfo = function(trend) {
       $http.get('/food/' + trend.foodId).success(function(data) {
-        console.log(data.name);
         trend.name = data.name;
       });
     }
