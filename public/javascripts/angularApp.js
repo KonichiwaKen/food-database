@@ -177,6 +177,8 @@ module.controller('MainCtrl', [
     $scope.lactoseAll = 0;
     $scope.meatAll = 0;
 
+    var mealAmount = 0;
+
     $scope.getValidFoods = function() {
       if (!$scope.netid || $scope.netid === '') { return; }
 
@@ -185,6 +187,8 @@ module.controller('MainCtrl', [
 
       var timeDiff = Math.abs(endDate.getTime() - currentDate.getTime());
       var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      mealAmount = $scope.balance / (diffDays*2.5);
+      console.log(mealAmount);
 
       if ($scope.fishAll) {
         $scope.fishAll = 1;
@@ -210,7 +214,6 @@ module.controller('MainCtrl', [
         $scope.meatAll = 0;
       }
 
-      var mealAmount = $scope.balance / (diffDays*2.5);
       validFoodItems.getValid(mealAmount, $scope.fishAll, $scope.nutAll, $scope.lactoseAll, $scope.meatAll);
 
       balances.create({
@@ -226,10 +229,10 @@ module.controller('MainCtrl', [
 
       $scope.netid = '';
       $scope.balance = '';
-      $scope.fishAll = 0;
-      $scope.nutAll = 0;
-      $scope.lactoseAll = 0;
-      $scope.meatAll = 0;
+      // $scope.fishAll = 0;
+      // $scope.nutAll = 0;
+      // $scope.lactoseAll = 0;
+      // $scope.meatAll = 0;
     };
 
     $scope.addFood = function() {
@@ -253,14 +256,36 @@ module.controller('MainCtrl', [
       var food_selected = {foodID: foodID, name: name, restaurant: restaurant, cost: cost};
       $scope.total += cost;
       $scope.total = +$scope.total.toFixed(2);
+
+
       $scope.food_selection.push(food_selected);
       console.log(cost);
+
+      mealAmount -= cost;
+
+
+      validFoodItems.getValid(mealAmount, $scope.fishAll, $scope.nutAll, $scope.lactoseAll, $scope.meatAll);
+      
+
+      // console.log($scope.food_selection);
+
     }
 
     $scope.remFromMenu = function(foodID, cost){
 
       $scope.total -= cost;
+      mealAmount += cost;
       $scope.food_selection.splice(foodID, 1);
+
+
+
+      validFoodItems.getValid(mealAmount, $scope.fishAll, $scope.nutAll, $scope.lactoseAll, $scope.meatAll);
+      
+
+
+
+
+
       // console.log($scope.food_selection);
     }
 
