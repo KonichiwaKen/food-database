@@ -254,15 +254,17 @@ module.controller('MainCtrl', [
 
     $scope.addToMenu = function(foodID, name, cost, restaurant){
       var food_selected = {foodID: foodID, name: name, restaurant: restaurant, cost: cost};
+      cost = +cost.toFixed(2);
       $scope.total += cost;
       $scope.total = +$scope.total.toFixed(2);
       mealAmount -= cost;
+      mealAmount = +mealAmount.toFixed(2);
       $scope.food_selection.push(food_selected);
 
       console.log(mealAmount);
 
       validFoodItems.getValid(mealAmount, $scope.fishAll, $scope.nutAll, $scope.lactoseAll, $scope.meatAll);
-      
+
 
       // console.log($scope.food_selection);
 
@@ -278,7 +280,7 @@ module.controller('MainCtrl', [
       console.log(mealAmount);
 
       validFoodItems.getValid(mealAmount, $scope.fishAll, $scope.nutAll, $scope.lactoseAll, $scope.meatAll);
-      
+
 
       // console.log($scope.food_selection);
     }
