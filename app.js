@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 // setup mongoDB
 var mongoose = require('mongoose');
-// mongoose.connect('mongodb://ken:zRldWDP^nK61@ds061620.mongolab.com:61620/snacktrack')
+// mongoose.connect('mongodb://<username>:<password>.mongolab.com:61620/snacktrack')
 mongoose.connect('mongodb://localhost/snacktrack')
 require('./models/Balances');
 require('./models/FoodItems');
