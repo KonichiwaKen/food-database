@@ -302,6 +302,7 @@ module.controller('TrendsCtrl', [
 
     $scope.foodTrends = function() {
       $scope.trends = [];
+      $scope.restaurant = '';
 
       for (var i = 0; i < $scope.transactions.length; i++) {
         var found = 0;
@@ -328,6 +329,7 @@ module.controller('TrendsCtrl', [
 
     $scope.restaurantTrends = function(restaurant) {
       $scope.trends = [];
+      $scope.restaurant = restaurant;
       var total = 0;
 
       for (var i = 0; i < $scope.transactions.length; i++) {
